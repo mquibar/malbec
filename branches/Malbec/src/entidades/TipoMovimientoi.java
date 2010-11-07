@@ -16,20 +16,21 @@ import javax.persistence.Id;
  * @author Manuel
  */
 @Entity
-public class Uva implements Serializable {
+public class TipoMovimientoi implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String nombre;
+    private int multiplicador;
 
-    public String getNombre() {
-        return nombre;
+    public int getMultiplicador() {
+        return multiplicador;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setMultiplicador(int multiplicador) {
+        this.multiplicador = multiplicador;
     }
+    
 
     public Integer getId() {
         return id;
@@ -49,10 +50,10 @@ public class Uva implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Uva)) {
+        if (!(object instanceof TipoMovimientoi)) {
             return false;
         }
-        Uva other = (Uva) object;
+        TipoMovimientoi other = (TipoMovimientoi) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -61,7 +62,7 @@ public class Uva implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Uva[id=" + id + "]";
+        return "entidades.TipoMovimientoi[id=" + id + "]";
     }
 
 }

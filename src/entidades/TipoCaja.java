@@ -10,23 +10,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 /**
  *
  * @author Manuel
  */
 @Entity
-public abstract class Persona implements Serializable {
+public class TipoCaja implements Serializable {
     protected static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Integer id;
-    protected String apellido;
-    protected String nombre;
-    protected String dni;
-    @OneToOne
-    protected Domicilio domicilio;
+    protected String nombreTipo;
+    protected double pesoVacia;
+
+    public String getNombreTipo() {
+        return nombreTipo;
+    }
+
+    public void setNombreTipo(String nombreTipo) {
+        this.nombreTipo = nombreTipo;
+    }
+
+    public double getPesoVacia() {
+        return pesoVacia;
+    }
+
+    public void setPesoVacia(double pesoVacia) {
+        this.pesoVacia = pesoVacia;
+    }
+    
 
     public Integer getId() {
         return id;
@@ -34,38 +47,6 @@ public abstract class Persona implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public Domicilio getDomicilio() {
-        return domicilio;
-    }
-
-    public void setDomicilio(Domicilio domicilio) {
-        this.domicilio = domicilio;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     @Override
@@ -78,10 +59,10 @@ public abstract class Persona implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Persona)) {
+        if (!(object instanceof TipoCaja)) {
             return false;
         }
-        Persona other = (Persona) object;
+        TipoCaja other = (TipoCaja) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -90,7 +71,7 @@ public abstract class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Persona[id=" + id + "]";
+        return "entidades.TipoCaja[id=" + id + "]";
     }
 
 }

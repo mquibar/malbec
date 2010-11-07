@@ -6,58 +6,43 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 
 /**
  *
  * @author Manuel
  */
 @Entity
-public abstract class Persona implements Serializable {
-    protected static final long serialVersionUID = 1L;
+public class Parcela implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Integer id;
-    protected String apellido;
-    protected String nombre;
-    protected String dni;
-    @OneToOne
-    protected Domicilio domicilio;
+    private Integer id;
+    private String nombre;
+    private String codigo;
+    @ManyToMany(mappedBy = "listaParcelas")
+    private List<TipoUva> tipoUvas;
 
-    public Integer getId() {
-        return id;
+    public List<TipoUva> getTipoUvas() {
+        return tipoUvas;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setTipoUvas(List<TipoUva> tipoUvas) {
+        this.tipoUvas = tipoUvas;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public Domicilio getDomicilio() {
-        return domicilio;
-    }
-
-    public void setDomicilio(Domicilio domicilio) {
-        this.domicilio = domicilio;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -66,6 +51,15 @@ public abstract class Persona implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
@@ -78,10 +72,10 @@ public abstract class Persona implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Persona)) {
+        if (!(object instanceof Parcela)) {
             return false;
         }
-        Persona other = (Persona) object;
+        Parcela other = (Parcela) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -90,7 +84,7 @@ public abstract class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Persona[id=" + id + "]";
+        return "entidades.Parcela[id=" + id + "]";
     }
 
 }

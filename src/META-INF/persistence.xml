@@ -2,15 +2,26 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
   <persistence-unit name="MalbecPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>entidades.Uva</class>
     <class>entidades.Localidad</class>
     <class>entidades.Domicilio</class>
     <class>entidades.Persona</class>
+    <class>entidades.TipoUva</class>
+    <class>entidades.Empleado</class>
+    <class>entidades.Cliente</class>
+    <class>entidades.TipoMovimientoi</class>
+    <class>entidades.MovimientoStock</class>
+    <class>entidades.ComponenteConservante</class>
+    <class>entidades.TipoCaja</class>
+    <class>entidades.ComponenteBolsa</class>
+    <class>entidades.ComponenteAereador</class>
+    <class>entidades.TipoCajaConCesta</class>
+    <class>entidades.Parcela</class>
+    <class>entidades.Caja</class>
     <properties>
-      <property name="hibernate.connection.username" value="app"/>
+      <property name="hibernate.connection.username" value="test"/>
       <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="hibernate.connection.password" value="app"/>
-      <property name="hibernate.connection.url" value="jdbc:derby://localhost:1527/sample"/>
+      <property name="hibernate.connection.password" value="test"/>
+      <property name="hibernate.connection.url" value="jdbc:derby://localhost:1527/malbec"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
       <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>

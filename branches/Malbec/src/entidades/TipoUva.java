@@ -24,6 +24,7 @@ public class TipoUva implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nombre;
+    private String codigo;
     @ManyToMany
     private List<Parcela> listaParcelas;
 
@@ -41,6 +42,14 @@ public class TipoUva implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public Integer getId() {

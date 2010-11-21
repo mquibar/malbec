@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Manuel
  */
-public class IntermediarioParcela extends Intermediario<Parcela>{
+class IntermediarioParcela extends Intermediario<Parcela>{
 
     public IntermediarioParcela() {
         super("Parcela");

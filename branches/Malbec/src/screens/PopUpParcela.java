@@ -11,6 +11,11 @@
 
 package screens;
 
+import javax.swing.JTextField;
+import javax.swing.table.TableModel;
+import screens.controllers.ctrlLectorPeso;
+import screens.models.tablas.ModelSystemTable;
+
 /**
  *
  * @author Manuel
@@ -18,11 +23,36 @@ package screens;
 public class PopUpParcela extends javax.swing.JDialog {
 
     /** Creates new form PopUpParcela */
-    public PopUpParcela(java.awt.Frame parent, boolean modal) {
+    public PopUpParcela(java.awt.Frame parent, boolean modal, ctrlLectorPeso control) {
         super(parent, modal);
         initComponents();
+        _control = control;
+        setVisible(true);
     }
 
+    public void setModel(ModelSystemTable modelo){
+        _tblTipoUva.setModel(modelo);
+    }
+    public TableModel getModel(){
+        return _tblTipoUva.getModel();
+    }
+
+    public JTextField getTxtCodigo() {
+        return _txtCodigo;
+    }
+
+    public void setTxtCodigo(JTextField _txtCodigo) {
+        this._txtCodigo = _txtCodigo;
+    }
+
+    public JTextField getTxtNombre() {
+        return _txtNombre;
+    }
+
+    public void setTxtNombre(JTextField _txtNombre) {
+        this._txtNombre = _txtNombre;
+    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -41,7 +71,7 @@ public class PopUpParcela extends javax.swing.JDialog {
         _tblTipoUva = new javax.swing.JTable();
         _btnSiguiente = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, java.awt.Color.lightGray), "Filtros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), java.awt.Color.gray)); // NOI18N
 
@@ -88,6 +118,11 @@ public class PopUpParcela extends javax.swing.JDialog {
         jScrollPane1.setViewportView(_tblTipoUva);
 
         _btnSiguiente.setText("Siguiente >>");
+        _btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _btnSiguienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,6 +153,10 @@ public class PopUpParcela extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void _btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__btnSiguienteActionPerformed
+        _control.pressNextButton(_tblTipoUva.getSelectedRow());
+    }//GEN-LAST:event__btnSiguienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton _btnSiguiente;
@@ -129,5 +168,5 @@ public class PopUpParcela extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-
+    private ctrlLectorPeso _control;
 }

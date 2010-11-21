@@ -16,7 +16,7 @@ public class TableTipoUva extends ModelSystemTable<TipoUva> {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         if(_listRow==null)
-            return null;
+            return "-";
         switch (columnIndex){
             case 0: return _listRow.get(rowIndex).getCodigo();
             case 1: return _listRow.get(rowIndex).getNombre();

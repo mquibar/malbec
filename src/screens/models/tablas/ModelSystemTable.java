@@ -42,5 +42,10 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
         return columnsName[column];
     }
 
+    public E getSelectedItem(int rowIndex){
+        if(_listRow==null)
+            return null;
+        return _listRow.get(rowIndex);
+    }
 
 }

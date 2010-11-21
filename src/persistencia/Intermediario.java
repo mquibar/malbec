@@ -8,12 +8,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.Query;
+import persistencia.exceptions.PersistException;
 
 /**
  *
  * @author desarrollo
  */
-public abstract class Intermediario<E> {
+abstract class Intermediario<E> {
 
     protected String _clase;
 
@@ -32,27 +33,21 @@ public abstract class Intermediario<E> {
         }
     }
 
-    public boolean guardar(E obj) {
+    public void guardar(E obj) throws PersistException {
         try {
             ConectionAdmin.getInstance().getManager().persist(obj);
-            return true;
         } catch (Exception ex) {
-            System.out.println("************* <Error al guardar>");
             ex.printStackTrace();
-            System.err.println(ex.getMessage());
-            System.out.println("<\\Error> *************");
-            return false;
+            throw new PersistException("Guardar",obj);
         }
     }
 
-    public boolean actualizar(E obj) {
+    public void actualizar(E obj) throws PersistException{
         try {
             ConectionAdmin.getInstance().getManager().merge(obj);
-            return true;
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.err.println(ex.getMessage());
-            return false;
+            throw new PersistException("Actualizar",obj);
         }
     }
 

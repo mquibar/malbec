@@ -11,6 +11,10 @@
 
 package screens;
 
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
+import screens.controllers.ctrlLectorPeso;
+
 /**
  *
  * @author Manuel
@@ -18,8 +22,9 @@ package screens;
 public class LectorPeso extends javax.swing.JFrame {
 
     /** Creates new form NewJFrame */
-    public LectorPeso() {
+    public LectorPeso( ctrlLectorPeso control) {
         initComponents();
+        _control= control;
         setVisible(true);
     }
 
@@ -44,6 +49,7 @@ public class LectorPeso extends javax.swing.JFrame {
         _txtBarCode = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         _txtPeso = new javax.swing.JTextField();
+        _okButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,6 +113,13 @@ public class LectorPeso extends javax.swing.JFrame {
 
         _txtPeso.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
 
+        _okButton.setText("Ok");
+        _okButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _okButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -125,6 +138,10 @@ public class LectorPeso extends javax.swing.JFrame {
                 .addGap(142, 142, 142)
                 .addComponent(jLabel5)
                 .addContainerGap(179, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(_okButton)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +154,9 @@ public class LectorPeso extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(_txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(_okButton)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,7 +177,7 @@ public class LectorPeso extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,18 +187,53 @@ public class LectorPeso extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event__txtParcelaActionPerformed
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LectorPeso().setVisible(true);
-            }
-        });
+    private void _okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__okButtonActionPerformed
+        _control.pressOkButton();
     }
 
+    public JTextField getTxtBarCode() {
+        return _txtBarCode;
+    }
+
+    public void setTxtBarCode(JTextField _txtBarCode) {
+        this._txtBarCode = _txtBarCode;
+    }
+
+    public JFormattedTextField getTxtFecha() {
+        return _txtFecha;
+    }
+
+    public void setTxtFecha(JFormattedTextField _txtFecha) {
+        this._txtFecha = _txtFecha;
+    }
+
+    public JTextField getTxtParcela() {
+        return _txtParcela;
+    }
+
+    public void setTxtParcela(JTextField _txtParcela) {
+        this._txtParcela = _txtParcela;
+    }
+
+    public JTextField getTxtPeso() {
+        return _txtPeso;
+    }
+
+    public void setTxtPeso(JTextField _txtPeso) {
+        this._txtPeso = _txtPeso;
+    }
+
+    public JTextField getTxtUva() {
+        return _txtUva;
+    }
+
+    public void setTxtUva(JTextField _txtUva) {
+        this._txtUva = _txtUva;
+    }//GEN-LAST:event__okButtonActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton _okButton;
     private javax.swing.JTextField _txtBarCode;
     private javax.swing.JFormattedTextField _txtFecha;
     private javax.swing.JTextField _txtParcela;
@@ -193,5 +247,5 @@ public class LectorPeso extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
-
+    private ctrlLectorPeso _control;
 }

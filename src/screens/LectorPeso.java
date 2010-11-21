@@ -32,9 +32,6 @@ public class LectorPeso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        datePickerCellEditor1 = new org.jdesktop.swingx.table.DatePickerCellEditor();
-        datePickerCellEditor2 = new org.jdesktop.swingx.table.DatePickerCellEditor();
-        datePickerFormatter1 = new org.jdesktop.swingx.calendar.DatePickerFormatter();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         _txtFecha = new javax.swing.JFormattedTextField();
@@ -188,9 +185,6 @@ public class LectorPeso extends javax.swing.JFrame {
     private javax.swing.JTextField _txtParcela;
     private javax.swing.JTextField _txtPeso;
     private javax.swing.JTextField _txtUva;
-    private org.jdesktop.swingx.table.DatePickerCellEditor datePickerCellEditor1;
-    private org.jdesktop.swingx.table.DatePickerCellEditor datePickerCellEditor2;
-    private org.jdesktop.swingx.calendar.DatePickerFormatter datePickerFormatter1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

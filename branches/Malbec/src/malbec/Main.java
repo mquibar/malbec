@@ -5,7 +5,8 @@
 
 package malbec;
 
-import entidades.Parcela;
+import modulo.leerPeso.ExpertoLeerPeso;
+
 
 /**
  *
@@ -17,7 +18,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new screens.LectorPeso();
+        //new screens.LectorPeso();
+
+        double peso = (new ExpertoLeerPeso()).leerPeso("peso");
+        System.out.println("Peso: "+peso);
+        
 
     }
 

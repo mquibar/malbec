@@ -17,9 +17,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Parcela p = new Parcela();
-        p.setNombre("Parcela de Prueba");
-        p.setCodigo("12312");
+        new screens.LectorPeso();
 
     }
 

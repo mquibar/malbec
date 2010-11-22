@@ -4,6 +4,8 @@
  */
 package persistencia;
 
+import java.util.Map;
+
 /**
  *
  * @author Manuel
@@ -30,4 +32,19 @@ public class CriterioCompuesto extends Criterio {
     public void setCriterioB(Criterio criterioB) {
         this.criterioB = criterioB;
     }
+
+    @Override
+    public String toString() {
+        return criterioA + " " + operador + " " + criterioB;
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map mapa = criterioA.toMap();
+        mapa.putAll(criterioB.toMap());
+        return mapa;
+    }
+
+
+
 }

@@ -111,7 +111,11 @@ public class LectorPeso extends javax.swing.JFrame {
 
         jLabel5.setText("PESO");
 
-        _txtPeso.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        _txtPeso.setBackground(new java.awt.Color(51, 51, 51));
+        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 50)); // NOI18N
+        _txtPeso.setForeground(new java.awt.Color(0, 153, 0));
+        _txtPeso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        _txtPeso.setText("08,750");
 
         _okButton.setText("Ok");
         _okButton.addActionListener(new java.awt.event.ActionListener() {

@@ -6,7 +6,6 @@
 package persistencia;
 
 import entidades.Parcela;
-import java.util.List;
 
 /**
  *
@@ -17,16 +16,4 @@ class IntermediarioParcela extends Intermediario<Parcela>{
     public IntermediarioParcela() {
         super("Parcela");
     }
-
-
-    @Override
-    public List<Parcela> findInOrden(String orden) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public List<Parcela> findByDto(Object dto) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
 }

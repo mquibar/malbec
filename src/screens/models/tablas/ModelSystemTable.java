@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package screens.models.tablas;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
 
     protected String[] columnsName;
 
-    public ModelSystemTable( List listRow,String ... columnsName) {
+    public ModelSystemTable(List listRow, String... columnsName) {
         this.columnsName = columnsName;
         this._listRow = listRow;
     }
@@ -26,14 +25,14 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
         this._listRow = listRow;
     }
 
-
     public int getColumnCount() {
         return columnsName.length;
     }
 
     public int getRowCount() {
-        if(_listRow==null)
+        if (_listRow == null || _listRow.size()==0) {
             return 0;
+        }
         return _listRow.size();
     }
 
@@ -42,10 +41,10 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
         return columnsName[column];
     }
 
-    public E getSelectedItem(int rowIndex){
-        if(_listRow==null)
+    public E getSelectedItem(int rowIndex) {
+        if (_listRow == null || _listRow.size()==0) {
             return null;
+        }
         return _listRow.get(rowIndex);
     }
-
 }

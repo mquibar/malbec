@@ -5,6 +5,7 @@
 
 package persistencia;
 
+import entidades.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,9 +39,14 @@ class MediatorFactory {
         
         switch(intermediarios.valueOf(c.getClass().getSimpleName())){
             case CAJA:
+                interm=new Intermediario<Caja>("Caja");
+                break;
             case PARCELA:
-                interm=new IntermediarioParcela();
+                interm=new Intermediario<Parcela>("Parcela");
+                break;
             case TIPOUVA:
+                interm=new Intermediario<TipoUva>("TipoUva");
+                break;
         }
         
         _mapaIntermediarios.put(c.getClass(), interm);

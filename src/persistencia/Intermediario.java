@@ -14,7 +14,7 @@ import persistencia.exceptions.PersistException;
  *
  * @author desarrollo
  */
-abstract class Intermediario<E> {
+class Intermediario<E> {
 
     protected String _clase;
 
@@ -38,44 +38,34 @@ abstract class Intermediario<E> {
             ConectionAdmin.getInstance().getManager().persist(obj);
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw new PersistException("Guardar",obj);
+            throw new PersistException("Guardar", obj);
         }
     }
 
-    public void actualizar(E obj) throws PersistException{
+    public void actualizar(E obj) throws PersistException {
         try {
             ConectionAdmin.getInstance().getManager().merge(obj);
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw new PersistException("Actualizar",obj);
+            throw new PersistException("Actualizar", obj);
         }
     }
 
-    public abstract List<E> findInOrden(String orden);
+    public List<E> findInOrden(String orden) {
+        Query q = ConectionAdmin.getInstance().getManager().createQuery("SELECT o FROM " + _clase + " o ORDER BY o." + orden);
+        return q.getResultList();
+    }
 
-    public abstract List<E> findByDto(Object dto);
-
-    protected Query crearQuery(Map<String, Object> restricciones) {
-        String sql = "SELECT o FROM " + _clase + " o ";
-        
-        if (restricciones.isEmpty()) {
-            return ConectionAdmin.getInstance().getManager().createQuery(sql);
+    public List<E> findByCriterio(Criterio criterio) {
+        String sql = "SELECT o FROM " + _clase + " o WHERE " + criterio;
+        Query q = ConectionAdmin.getInstance().getManager().createQuery(sql);
+        Map<String, Object> mapa = criterio.toMap();
+        Iterator<String> it = mapa.keySet().iterator();
+        String key;
+        while (it.hasNext()) {
+            key = it.next();
+            q.setParameter(key, mapa.get(key));
         }
-        Query q = null;
-        sql += "WHERE ";
-        Iterator<String> i = restricciones.keySet().iterator();
-        while (i.hasNext()) {
-            String key = i.next();
-            sql += "o." + key + "= :" + key + " AND ";
-        }
-        sql = sql.substring(0, sql.length()-5);
-        q = ConectionAdmin.getInstance().getManager().createQuery(sql);
-
-        i = restricciones.keySet().iterator();
-        while (i.hasNext()) {
-            String key = i.next();
-            q.setParameter(key, restricciones.get(key));
-        }
-        return q;
+        return q.getResultList();
     }
 }

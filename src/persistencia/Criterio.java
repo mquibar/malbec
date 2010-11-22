@@ -5,6 +5,9 @@
 
 package persistencia;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author Manuel
@@ -41,8 +44,13 @@ public class Criterio {
 
     @Override
     public String toString() {
-        return atributo + operador + ":"+atributo;
+        return "o."+atributo + operador + ":"+atributo;
     }
 
+    public Map<String,Object> toMap(){
+        Map mapa = new HashMap<String, Object>();
+        mapa.put(atributo, valor);
+        return mapa;
+    }
 
 }

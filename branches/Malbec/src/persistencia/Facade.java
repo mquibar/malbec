@@ -56,4 +56,8 @@ public class Facade {
     public List findByCriterio(Object entidad, Criterio criterio){
         return MediatorFactory.getInstance().getMediator(entidad).findByCriterio(criterio);
     }
+
+    public List excecuteQuery(Object entidad, String query){
+        return MediatorFactory.getInstance().getMediator(entidad).excecuteQuery(query);
+    }
 }

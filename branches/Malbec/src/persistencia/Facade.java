@@ -5,6 +5,7 @@
 
 package persistencia;
 
+import java.util.List;
 import systemException.SystemException;
 
 /**
@@ -44,5 +45,15 @@ public class Facade {
         MediatorFactory.getInstance().getMediator(entidad).actualizar(entidad);
     }
 
-    
+    public List findAll(Object entidad){
+        return MediatorFactory.getInstance().getMediator(entidad).findAll();
+    }
+
+    public List findInOrder(Object entidad, String orden){
+            return MediatorFactory.getInstance().getMediator(entidad).findInOrden(orden);
+    }
+
+    public List findByCriterio(Object entidad, Criterio criterio){
+        return MediatorFactory.getInstance().getMediator(entidad).findByCriterio(criterio);
+    }
 }

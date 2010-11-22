@@ -68,4 +68,8 @@ class Intermediario<E> {
         }
         return q.getResultList();
     }
+
+    public List<E> excecuteQuery(String query){
+        return ConectionAdmin.getInstance().getManager().createQuery(query).getResultList();
+    }
 }

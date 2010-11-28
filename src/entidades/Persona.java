@@ -6,11 +6,13 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -25,6 +27,8 @@ public abstract class Persona implements Serializable {
     protected String apellido;
     protected String nombre;
     protected String dni;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    protected Date fechaNacimiento;
     @OneToOne
     protected Domicilio domicilio;
 
@@ -50,6 +54,14 @@ public abstract class Persona implements Serializable {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public Domicilio getDomicilio() {

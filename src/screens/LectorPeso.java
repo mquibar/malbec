@@ -67,7 +67,7 @@ public class LectorPeso extends javax.swing.JFrame {
 
         _txtUva.setEnabled(false);
 
-        _txtParcela.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        _txtParcela.setFont(new java.awt.Font("Tahoma", 1, 14));
         _txtParcela.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

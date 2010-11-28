@@ -66,15 +66,16 @@ public class ExpertoLeerPeso {
         try {
 
         double peso = (new driverBalanza(reintentos)).getPeso();
-            if (verificarPeso (peso)) {
+            //if (verificarPeso (peso)) {
             //caja.setFechaEmpaque(new Date());
             //caja.setParcela(_parcela);
             //caja.setTipoUva(_tipoUva);
             //caja.setEmpleado(empleado);
             //caja.setPeso(peso);
             //guardarCaja (caja);
+            
             return peso;
-            }
+            //}
 
         } catch (Exception ex) {
             System.out.println("Exception: "+ex.getMessage());

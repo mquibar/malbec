@@ -25,6 +25,7 @@ public class TipoUva implements Serializable {
     private Integer id;
     private String nombre;
     private String codigo;
+    private String descripcion;
     @ManyToMany
     private List<Parcela> listaParcelas;
 
@@ -58,6 +59,14 @@ public class TipoUva implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     @Override

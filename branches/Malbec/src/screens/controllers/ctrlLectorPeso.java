@@ -29,28 +29,28 @@ public class ctrlLectorPeso {
         _pantalla = new LectorPeso(this);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         _pantalla.getTxtFecha().setText(sdf.format(new Date()));
-        //_exp= new ExpertoLeerPeso();
+        _exp= new ExpertoLeerPeso();
         selectedTipoUva();
     }
 
     public void selectedTipoUva() {
         popup = new PopUpParcela(_pantalla, false, this);
-        //popup.setModel(new TableTipoUva(_exp.listarTipoUva()));
+        popup.setModel(new TableTipoUva(_exp.listarTipoUva()));
     }
 
     public void pressNextButton(int selectedRow) {
         switch (paso) {
             case 0:
-                //TipoUva uva = ((TableTipoUva) popup.getModel()).getSelectedItem(selectedRow);
-                //_pantalla.getTxtUva().setText(uva.getNombre());
-                //popup.setModel(new TableParcela(_exp.listarParcelaDelTipo(uva)));
+                TipoUva uva = ((TableTipoUva) popup.getModel()).getSelectedItem(selectedRow);
+                _pantalla.getTxtUva().setText(uva.getNombre());
+                popup.setModel(new TableParcela(_exp.listarParcelaDelTipo(uva)));
                 popup.getTxtCodigo().setEnabled(false);
                 paso++;
                 return;
             case 1:
-                //Parcela p = ((TableParcela) popup.getModel()).getSelectedItem(selectedRow);
-                //_pantalla.getTxtParcela().setText(p.getNombre());
-                //_exp.asignarParcela(p);
+                Parcela p = ((TableParcela) popup.getModel()).getSelectedItem(selectedRow);
+                _pantalla.getTxtParcela().setText(p.getNombre());
+                _exp.asignarParcela(p);
                 paso = 0;
                 popup.dispose();
                 return;
@@ -63,11 +63,7 @@ public class ctrlLectorPeso {
          * Si existen exceptiones se mostraran por joption
          */
         try {
-            double peso = 8.780;
-            String pesostr = String.valueOf(peso);
-            for (int i = 0; pesostr.length() < 6; i++) {
-                pesostr += "0";
-            }
+            double peso = _exp.leerPeso(_pantalla.getTxtBarCode().getText());
             _pantalla.getTxtPeso().setText(parcearPeso(peso));
         } catch (Exception e) {
         }

@@ -45,7 +45,7 @@ public class Facade {
         MediatorFactory.getInstance().getMediator(entidad).actualizar(entidad);
     }
 
-    public List findAll(Object entidad){
+    public List findAll(Class entidad){
         return MediatorFactory.getInstance().getMediator(entidad).findAll();
     }
 

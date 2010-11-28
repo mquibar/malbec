@@ -21,8 +21,8 @@ public class Main {
     public static void main(String[] args) {
         //new screens.LectorPeso();
         new ctrlLectorPeso();
-//        double peso = (new ExpertoLeerPeso()).leerPeso("peso");
-//        System.out.println("Peso: "+peso);
+        //double peso = (new ExpertoLeerPeso()).leerPeso("peso");
+        //System.out.println("Peso: "+peso);
         
 
     }

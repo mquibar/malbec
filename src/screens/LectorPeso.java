@@ -59,16 +59,16 @@ public class LectorPeso extends javax.swing.JFrame {
 
         _txtFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         _txtFecha.setText("  /  /    ");
+        _txtFecha.setEnabled(false);
 
         jLabel2.setText("UVa");
 
         jLabel3.setText("Parcela");
 
-        _txtParcela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _txtParcelaActionPerformed(evt);
-            }
-        });
+        _txtUva.setEnabled(false);
+
+        _txtParcela.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        _txtParcela.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,7 +112,7 @@ public class LectorPeso extends javax.swing.JFrame {
         jLabel5.setText("PESO");
 
         _txtPeso.setBackground(new java.awt.Color(51, 51, 51));
-        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 50)); // NOI18N
+        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 50));
         _txtPeso.setForeground(new java.awt.Color(0, 153, 0));
         _txtPeso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         _txtPeso.setText("08,750");
@@ -181,15 +181,11 @@ public class LectorPeso extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void _txtParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__txtParcelaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event__txtParcelaActionPerformed
 
     private void _okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__okButtonActionPerformed
         _control.pressOkButton();

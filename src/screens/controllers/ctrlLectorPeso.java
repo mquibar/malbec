@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import modulo.leerPeso.ExpertoLeerPeso;
+import modulo.caja.ExpertoCargarCaja;
 import screens.LectorPeso;
 import screens.PopUpParcela;
 import screens.models.tablas.TableParcela;
@@ -25,13 +25,13 @@ public class ctrlLectorPeso {
     private PopUpParcela popup;
     private LectorPeso _pantalla;
     private int paso = 0;
-    private ExpertoLeerPeso _exp;
+    private ExpertoCargarCaja _exp;
 
     public ctrlLectorPeso() {
         _pantalla = new LectorPeso(this);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         _pantalla.getTxtFecha().setText(sdf.format(new Date()));
-        _exp= new ExpertoLeerPeso();
+        _exp= new ExpertoCargarCaja();
         _pantalla.getTxtBarCode().addKeyListener(new KeyListener() {
 
             public void keyTyped(KeyEvent e) {
@@ -78,7 +78,7 @@ public class ctrlLectorPeso {
          * Si existen exceptiones se mostraran por joption
          */
         try {
-            double peso = _exp.leerPeso(_pantalla.getTxtBarCode().getText());
+            double peso = _exp.cargarCaja(_pantalla.getTxtBarCode().getText());
             _pantalla.getTxtPeso().setText(parcearPeso(peso));
         } catch (Exception e) {
         }

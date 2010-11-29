@@ -5,7 +5,7 @@
 
 package malbec;
 
-import modulo.leerPeso.ExpertoLeerPeso;
+import modulo.caja.ExpertoCargarCaja;
 import screens.controllers.ctrlLectorPeso;
 
 
@@ -21,7 +21,7 @@ public class Main {
     public static void main(String[] args) {
         //new screens.LectorPeso();
         new ctrlLectorPeso();
-        //double peso = (new ExpertoLeerPeso()).leerPeso("peso");
+        //double peso = (new ExpertoCargarCaja()).leerPeso("peso");
         //System.out.println("Peso: "+peso);
         
 

@@ -3,20 +3,24 @@
  * and open the template in the editor.
  */
 
-package modulo.leerPeso;
+package modulo.caja;
 
 import driver.driverbalanza.driverBalanza;
 import entidades.Caja;
+import entidades.Empleado;
 import entidades.Parcela;
 import entidades.TipoUva;
+import java.util.Date;
 import java.util.List;
-import modulo.consultas.ExpertoConsultaTipoUvayParcela;
+import modulo.empleado.ExpConsultarEmpleado;
+import modulo.parcelaTipoUva.ExpConsultarTipoUva;
+import persistencia.Facade;
 
 /**
  *
  * @author Juan
  */
-public class ExpertoLeerPeso {
+public class ExpertoCargarCaja {
     
     private TipoUva _tipoUva;
     private Parcela _parcela;
@@ -28,7 +32,7 @@ public class ExpertoLeerPeso {
      * @return List<TipoUva> devuelve un listado de todos los tipos de uva
      */
     public List<TipoUva> listarTipoUva () {
-        return (new ExpertoConsultaTipoUvayParcela()).listarTiposDeUvas();
+        return (new ExpConsultarTipoUva()).consultarTiposDeUva();
     }
 
     /**
@@ -40,7 +44,7 @@ public class ExpertoLeerPeso {
      */
     public List<Parcela> listarParcelaDelTipo (TipoUva tipo) {
         _tipoUva = tipo;
-        return (new ExpertoConsultaTipoUvayParcela()).listarParcelaPorTipo(tipo);
+        return tipo.getListaParcelas();
     }
 
     /**
@@ -60,39 +64,29 @@ public class ExpertoLeerPeso {
      * @param codigo: Codigo del empleado
      * @return: el peso leido por la balanza
      */
-    public double leerPeso (String codigo) {
-        //Empleado empleado = (new IntermediarioEmpleado ()).consultarEmpleadoPorCodigo(codigo);
-        //Caja caja = new Caja();
+    public double cargarCaja (String codigo) {
+        Empleado empleado = (new ExpConsultarEmpleado()).consultarEmpleadoPorCodigo(codigo);
+        Caja caja = new Caja();
         try {
 
         double peso = (new driverBalanza(reintentos)).getPeso();
-            //if (verificarPeso (peso)) {
-            //caja.setFechaEmpaque(new Date());
-            //caja.setParcela(_parcela);
-            //caja.setTipoUva(_tipoUva);
-            //caja.setEmpleado(empleado);
-            //caja.setPeso(peso);
-            //guardarCaja (caja);
-            
-            return peso;
-            //}
+            if (verificarPeso (peso)) {
+                caja.setFechaEmpaque(new Date());
+                caja.setParcela(_parcela);
+                caja.setTipoUva(_tipoUva);
+                caja.setEmpleado(empleado);
+                caja.setPeso(peso);
+                Facade.getInstance().beginTx();
+                Facade.getInstance().guardar(caja);
+                Facade.getInstance().commitTx();
+                return peso;
+            }
 
         } catch (Exception ex) {
             System.out.println("Exception: "+ex.getMessage());
         }
 
         return 0.0;
-    }
-
-    /**
-     * Guarda la caja que se encuentra en condiciones
-     *
-     * @param caja: caja a ser guardada
-     */
-    private void guardarCaja (Caja caja) {
-
-        //(new IntermediarioCaja()).guardar(caja);
-
     }
 
     /**

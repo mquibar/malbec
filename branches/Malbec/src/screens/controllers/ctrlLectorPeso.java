@@ -6,6 +6,8 @@ package screens.controllers;
 
 import entidades.Parcela;
 import entidades.TipoUva;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import modulo.leerPeso.ExpertoLeerPeso;
@@ -30,6 +32,19 @@ public class ctrlLectorPeso {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         _pantalla.getTxtFecha().setText(sdf.format(new Date()));
         _exp= new ExpertoLeerPeso();
+        _pantalla.getTxtBarCode().addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+            }
+
+            public void keyPressed(KeyEvent e) {
+            }
+
+            public void keyReleased(KeyEvent e) {
+                if(e.getKeyCode()==KeyEvent.VK_ENTER)
+                    pressOkButton();
+            }
+        });
         selectedTipoUva();
     }
 

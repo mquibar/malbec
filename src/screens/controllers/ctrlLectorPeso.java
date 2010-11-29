@@ -50,22 +50,22 @@ public class ctrlLectorPeso {
 
     public void selectedTipoUva() {
         popup = new PopUpParcela(_pantalla, false, this);
-        //popup.setModel(new TableTipoUva(_exp.listarTipoUva()));
+        popup.setModel(new TableTipoUva(_exp.listarTipoUva()));
     }
 
     public void pressNextButton(int selectedRow) {
         switch (paso) {
             case 0:
-                //TipoUva uva = ((TableTipoUva) popup.getModel()).getSelectedItem(selectedRow);
-                //_pantalla.getTxtUva().setText(uva.getNombre());
-                //popup.setModel(new TableParcela(_exp.listarParcelaDelTipo(uva)));
+                TipoUva uva = ((TableTipoUva) popup.getModel()).getSelectedItem(selectedRow);
+                _pantalla.getTxtUva().setText(uva.getNombre());
+                popup.setModel(new TableParcela(_exp.listarParcelaDelTipo(uva)));
                 popup.getTxtCodigo().setEnabled(false);
                 paso++;
                 return;
             case 1:
-                //Parcela p = ((TableParcela) popup.getModel()).getSelectedItem(selectedRow);
-                //_pantalla.getTxtParcela().setText(p.getNombre());
-                //_exp.asignarParcela(p);
+                Parcela p = ((TableParcela) popup.getModel()).getSelectedItem(selectedRow);
+                _pantalla.getTxtParcela().setText(p.getNombre());
+                _exp.asignarParcela(p);
                 paso = 0;
                 popup.dispose();
                 return;

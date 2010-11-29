@@ -31,7 +31,7 @@ public class ExpAltaTipoUva {
     /**
      * Guarda los Tipos de Uva
      *
-     * @param parametros: List parcelas, Nombre, Codigo, Descripcion
+     * @param parametros List parcelas, Nombre, Codigo, Descripcion
      */
     public void guardarTipoUva (List<Parcela> parcela, String... parametros) throws Exception {
 

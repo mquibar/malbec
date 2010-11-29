@@ -4,6 +4,7 @@
  */
 package screens.models.tablas;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -46,5 +47,37 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
             return null;
         }
         return _listRow.get(rowIndex);
+    }
+
+    public List<E> getListRow() {
+        return _listRow;
+    }
+
+    public void addRow(E e){
+        if(_listRow == null)
+            _listRow = new ArrayList<E>();
+        _listRow.add(e);
+    }
+
+    public void addRowAll(List<E> e){
+        if(_listRow == null)
+            _listRow = new ArrayList<E>();
+        _listRow.addAll(e);
+    }
+
+    public void removeRow(E e){
+        if(_listRow == null)
+            _listRow = new ArrayList<E>();
+        _listRow.remove(e);
+    }
+
+    public void removeRowAll(List<E> e){
+        if(_listRow == null)
+            _listRow = new ArrayList<E>();
+        _listRow.removeAll(e);
+    }
+
+    public void clear(){
+        _listRow.clear();
     }
 }

@@ -20,14 +20,12 @@ import screens.models.tablas.ModelSystemTable;
  *
  * @author Manuel
  */
-public class PopUpParcela extends javax.swing.JDialog {
+public class PopUpParcela extends javax.swing.JInternalFrame {
 
     /** Creates new form PopUpParcela */
-    public PopUpParcela(java.awt.Frame parent, boolean modal, ctrlLectorPeso control) {
-        super(parent, modal);
+    public PopUpParcela( ctrlLectorPeso control) {
         initComponents();
         _control = control;
-        setVisible(true);
     }
 
     public void setModel(ModelSystemTable modelo){

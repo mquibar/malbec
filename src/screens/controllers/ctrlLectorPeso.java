@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JDesktopPane;
 import modulo.caja.ExpertoCargarCaja;
 import screens.LectorPeso;
 import screens.PopUpParcela;
@@ -27,8 +28,11 @@ public class ctrlLectorPeso {
     private int paso = 0;
     private ExpertoCargarCaja _exp;
 
-    public ctrlLectorPeso() {
+    public ctrlLectorPeso(JDesktopPane desktop) {
         _pantalla = new LectorPeso(this);
+        popup = new PopUpParcela(this);
+        desktop.add(_pantalla);
+        desktop.add(popup);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         _pantalla.getTxtFecha().setText(sdf.format(new Date()));
         _exp= new ExpertoCargarCaja();
@@ -46,11 +50,12 @@ public class ctrlLectorPeso {
             }
         });
         selectedTipoUva();
+
     }
 
     public void selectedTipoUva() {
-        popup = new PopUpParcela(_pantalla, false, this);
         popup.setModel(new TableTipoUva(_exp.listarTipoUva()));
+        popup.setVisible(true);
     }
 
     public void pressNextButton(int selectedRow) {
@@ -68,6 +73,7 @@ public class ctrlLectorPeso {
                 _exp.asignarParcela(p);
                 paso = 0;
                 popup.dispose();
+                _pantalla.setVisible(true);
                 return;
         }
     }

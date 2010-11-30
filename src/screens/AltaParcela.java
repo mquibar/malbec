@@ -20,7 +20,7 @@ import screens.controllers.ctrlAltaParcela;
  *
  * @author Manuel
  */
-public class AltaParcela extends javax.swing.JFrame {
+public class AltaParcela extends javax.swing.JInternalFrame {
 
     /** Creates new form AltaParcela */
     public AltaParcela(ctrlAltaParcela control) {
@@ -48,7 +48,9 @@ public class AltaParcela extends javax.swing.JFrame {
         _btnOk = new javax.swing.JButton();
         _btnCancel = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Parcela"));
 
@@ -69,7 +71,7 @@ public class AltaParcela extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -126,7 +128,7 @@ public class AltaParcela extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(_btnOk)
                     .addComponent(_btnCancel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();

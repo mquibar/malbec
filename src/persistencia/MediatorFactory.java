@@ -30,14 +30,14 @@ class MediatorFactory {
         return _instance;
     }
     
-    public Intermediario getMediator(Object c){
+    public Intermediario getMediator(Class c){
         
-        if( _mapaIntermediarios.containsKey(c.getClass()))
-            return _mapaIntermediarios.get(c.getClass());
+        if( _mapaIntermediarios.containsKey(c))
+            return _mapaIntermediarios.get(c);
         
         Intermediario interm=null;
         
-        switch(intermediarios.valueOf(c.getClass().getSimpleName())){
+        switch(intermediarios.valueOf(c.getSimpleName().toUpperCase())){
             case CAJA:
                 interm=new Intermediario<Caja>("Caja");
                 break;

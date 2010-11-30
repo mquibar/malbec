@@ -21,7 +21,7 @@ import screens.controllers.ctrlAltaTipoUva;
  *
  * @author Manuel
  */
-public class AltaTipoUva extends javax.swing.JFrame {
+public class AltaTipoUva extends javax.swing.JInternalFrame {
 
     /** Creates new form AltaTipoUva */
     public AltaTipoUva(ctrlAltaTipoUva control) {
@@ -58,7 +58,9 @@ public class AltaTipoUva extends javax.swing.JFrame {
         _btnOk = new javax.swing.JButton();
         _btnCancel = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Tipo Uva"));
 

@@ -6,7 +6,6 @@
 package modulo.parcelaTipoUva;
 
 import entidades.Parcela;
-import entidades.TipoUva;
 import persistencia.Facade;
 
 /**
@@ -18,7 +17,7 @@ public class ExpAltaParcela {
     /**
      *  guarda la parcela segun los datos enviados como parametros
      *
-     * @param parametros: Nombre, Codigo, Descripcion
+     * @param parametros : Nombre, Codigo, Descripcion
      */
     public void guardarParcela (String... parametros) throws Exception{
 

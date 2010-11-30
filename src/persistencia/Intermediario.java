@@ -24,7 +24,7 @@ class Intermediario<E> {
 
     public List<E> findAll() {
         try {
-            Query q = ConectionAdmin.getInstance().getManager().createNamedQuery(_clase + ".findAll");
+            Query q = ConectionAdmin.getInstance().getManager().createQuery("SELECT c FROM "+_clase + " c");
             return q.getResultList();
         } catch (Exception ex) {
             ex.printStackTrace();

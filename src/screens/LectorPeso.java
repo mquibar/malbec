@@ -19,13 +19,12 @@ import screens.controllers.ctrlLectorPeso;
  *
  * @author Manuel
  */
-public class LectorPeso extends javax.swing.JFrame {
+public class LectorPeso extends javax.swing.JInternalFrame {
 
     /** Creates new form NewJFrame */
     public LectorPeso( ctrlLectorPeso control) {
         initComponents();
         _control= control;
-        setVisible(true);
     }
 
     /** This method is called from within the constructor to
@@ -51,7 +50,10 @@ public class LectorPeso extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         _txtPeso = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, java.awt.Color.white), "Datos de Carga", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 13), java.awt.Color.lightGray)); // NOI18N
 
@@ -130,7 +132,7 @@ public class LectorPeso extends javax.swing.JFrame {
         jPanel2.add(jLabel5, gridBagConstraints);
 
         _txtPeso.setBackground(new java.awt.Color(51, 51, 51));
-        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 50)); // NOI18N
+        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 50));
         _txtPeso.setForeground(new java.awt.Color(0, 153, 0));
         _txtPeso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         _txtPeso.setText("08,750");
@@ -160,7 +162,7 @@ public class LectorPeso extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();

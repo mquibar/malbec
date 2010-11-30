@@ -91,7 +91,7 @@ public class ctrlAltaTipoUva {
     }
 
     void pressCancelButton(){
-        if(JOptionPane.showConfirmDialog(_pantalla, "Desea cancelar la operacion?", "Confirmar", JOptionPane.QUESTION_MESSAGE)==0)
+        if(JOptionPane.showConfirmDialog(_pantalla, "Desea cancelar la operacion?", "Confirmar", JOptionPane.YES_NO_OPTION)!=0)
             return;
         _pantalla.dispose();
     }
@@ -99,7 +99,7 @@ public class ctrlAltaTipoUva {
     void pressAddOneButton(){
         int rowSelected = _pantalla.getTblParcela().getSelectedRow();
         _asignadas.addRow(_todas.getSelectedItem(rowSelected));
-        _todas.getSelectedItem(rowSelected);
+        _todas.removeRow(_todas.getSelectedItem(rowSelected));
         if(_todas.getListRow().isEmpty()){
             _pantalla.getBtnAddOne().setEnabled(false);
             _pantalla.getBtnAddAll().setEnabled(false);
@@ -118,7 +118,7 @@ public class ctrlAltaTipoUva {
 
         int rowSelected = _pantalla.getTblParcela().getSelectedRow();
         _todas.addRow(_asignadas.getSelectedItem(rowSelected));
-        _asignadas.getSelectedItem(rowSelected);
+        _asignadas.removeRow(_asignadas.getSelectedItem(rowSelected));
         if(_asignadas.getListRow().isEmpty()){
             _pantalla.getBtnRemoveOne().setEnabled(false);
             _pantalla.getBtnRemoveAll().setEnabled(false);

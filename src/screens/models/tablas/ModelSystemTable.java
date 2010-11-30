@@ -24,6 +24,7 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
 
     public void setListRow(List<E> listRow) {
         this._listRow = listRow;
+        fireTableDataChanged();
     }
 
     public int getColumnCount() {
@@ -57,27 +58,32 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
         if(_listRow == null)
             _listRow = new ArrayList<E>();
         _listRow.add(e);
+        fireTableDataChanged();
     }
 
     public void addRowAll(List<E> e){
         if(_listRow == null)
             _listRow = new ArrayList<E>();
         _listRow.addAll(e);
+        fireTableDataChanged();
     }
 
     public void removeRow(E e){
         if(_listRow == null)
             _listRow = new ArrayList<E>();
         _listRow.remove(e);
+        fireTableDataChanged();
     }
 
     public void removeRowAll(List<E> e){
         if(_listRow == null)
             _listRow = new ArrayList<E>();
         _listRow.removeAll(e);
+        fireTableDataChanged();
     }
 
     public void clear(){
         _listRow.clear();
+        fireTableDataChanged();
     }
 }

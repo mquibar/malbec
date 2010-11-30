@@ -11,6 +11,10 @@
 
 package screens;
 
+import javax.swing.JDesktopPane;
+import javax.swing.JMenuItem;
+import screens.controllers.ctrlMainMenu;
+
 /**
  *
  * @author MARIANO
@@ -18,8 +22,9 @@ package screens;
 public class MainMenu extends javax.swing.JFrame {
 
     /** Creates new form MainMenu */
-    public MainMenu() {
+    public MainMenu(ctrlMainMenu control) {
         initComponents();
+        _contro = control;
     }
 
     /** This method is called from within the constructor to
@@ -30,42 +35,50 @@ public class MainMenu extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        desktopPane = new javax.swing.JDesktopPane();
+        _dskPanel = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
+        _mnuRegPersonal = new javax.swing.JMenuItem();
+        _mnuListPersonal = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
+        _mnuIniciarDia = new javax.swing.JMenuItem();
+        _mnuRegParcela = new javax.swing.JMenuItem();
+        _mnuRegTipoUva = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(640, 480));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(_dskPanel, gridBagConstraints);
 
         fileMenu.setText("Personal");
 
-        openMenuItem.setText("Registrar Personal");
-        fileMenu.add(openMenuItem);
+        _mnuRegPersonal.setText("Registrar Personal");
+        fileMenu.add(_mnuRegPersonal);
 
-        saveAsMenuItem.setText("Listado Personal");
-        fileMenu.add(saveAsMenuItem);
+        _mnuListPersonal.setText("Listado Personal");
+        fileMenu.add(_mnuListPersonal);
 
         menuBar.add(fileMenu);
 
         editMenu.setText("Producción");
 
-        cutMenuItem.setText("Iniciar Dia");
-        editMenu.add(cutMenuItem);
+        _mnuIniciarDia.setText("Iniciar Dia");
+        editMenu.add(_mnuIniciarDia);
 
-        copyMenuItem.setText("Registrar Parcela");
-        editMenu.add(copyMenuItem);
+        _mnuRegParcela.setText("Registrar Parcela");
+        editMenu.add(_mnuRegParcela);
 
-        pasteMenuItem.setText("Registrar Tipo Uva");
-        editMenu.add(pasteMenuItem);
+        _mnuRegTipoUva.setText("Registrar Tipo Uva");
+        editMenu.add(_mnuRegTipoUva);
 
         menuBar.add(editMenu);
 
@@ -81,50 +94,48 @@ public class MainMenu extends javax.swing.JFrame {
 
         setJMenuBar(menuBar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                .addGap(48, 48, 48))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                .addGap(145, 145, 145))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainMenu().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane _dskPanel;
+    private javax.swing.JMenuItem _mnuIniciarDia;
+    private javax.swing.JMenuItem _mnuListPersonal;
+    private javax.swing.JMenuItem _mnuRegParcela;
+    private javax.swing.JMenuItem _mnuRegPersonal;
+    private javax.swing.JMenuItem _mnuRegTipoUva;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
-    private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
     // End of variables declaration//GEN-END:variables
+    private ctrlMainMenu _contro;
+    public JMenuItem getMnuIniciarDia() {
+        return _mnuIniciarDia;
+    }
 
+    public JMenuItem getMnuListPersonal() {
+        return _mnuListPersonal;
+    }
+
+    public JMenuItem getMnuRegParcela() {
+        return _mnuRegParcela;
+    }
+
+    public JMenuItem getMnuRegPersonal() {
+        return _mnuRegPersonal;
+    }
+
+    public JMenuItem getMnuRegTipoUva() {
+        return _mnuRegTipoUva;
+    }
+
+    public JDesktopPane getDesktopPane() {
+        return _dskPanel;
+    }
+
+    
 }

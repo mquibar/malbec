@@ -38,11 +38,11 @@ public class Facade {
     }
 
     public void guardar(Object entidad) throws SystemException{
-        MediatorFactory.getInstance().getMediator(entidad).guardar(entidad);
+        MediatorFactory.getInstance().getMediator(entidad.getClass()).guardar(entidad);
     }
 
     public void actualizar(Object entidad)throws SystemException{
-        MediatorFactory.getInstance().getMediator(entidad).actualizar(entidad);
+        MediatorFactory.getInstance().getMediator(entidad.getClass()).actualizar(entidad);
     }
 
     public List findAll(Class entidad){
@@ -50,14 +50,14 @@ public class Facade {
     }
 
     public List findInOrder(Object entidad, String orden){
-            return MediatorFactory.getInstance().getMediator(entidad).findInOrden(orden);
+            return MediatorFactory.getInstance().getMediator(entidad.getClass()).findInOrden(orden);
     }
 
     public List findByCriterio(Object entidad, Criterio criterio){
-        return MediatorFactory.getInstance().getMediator(entidad).findByCriterio(criterio);
+        return MediatorFactory.getInstance().getMediator(entidad.getClass()).findByCriterio(criterio);
     }
 
     public List excecuteQuery(Object entidad, String query){
-        return MediatorFactory.getInstance().getMediator(entidad).excecuteQuery(query);
+        return MediatorFactory.getInstance().getMediator(entidad.getClass()).excecuteQuery(query);
     }
 }

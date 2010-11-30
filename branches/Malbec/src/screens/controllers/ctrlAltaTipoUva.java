@@ -9,6 +9,7 @@ import entidades.Parcela;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import modulo.parcelaTipoUva.ExpAltaTipoUva;
 import screens.AltaTipoUva;
@@ -24,8 +25,9 @@ public class ctrlAltaTipoUva {
     private ExpAltaTipoUva _gestorAlta;
     private TableParcela _todas, _asignadas;
 
-    public ctrlAltaTipoUva() {
+    public ctrlAltaTipoUva(JDesktopPane panel) {
         _pantalla = new AltaTipoUva(this);
+        panel.add(_pantalla);
         _gestorAlta = new ExpAltaTipoUva();
         _todas = new TableParcela(_gestorAlta.iniciarAltaTipoUva());
         _asignadas = new TableParcela(new ArrayList<Parcela>());

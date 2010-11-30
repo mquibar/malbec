@@ -46,14 +46,14 @@ public class ctrlAltaParcela {
     void pressOkButton(){
         try {
             (new ExpAltaParcela()).guardarParcela(_pantalla.getTxtNombre().getText(), _pantalla.getTxtCodigo().getText(), _pantalla.getTxtDescripcion().getText());
-            if(JOptionPane.showConfirmDialog(_pantalla, "Parcela guardad con exito. \n Desea realizar otra operación?","Guardado",JOptionPane.YES_NO_OPTION)!=0)
+            if(JOptionPane.showConfirmDialog(_pantalla, "Operación realizada con exito. \n Desea realizar otra operación?","Guardado",JOptionPane.YES_NO_OPTION)!=0)
                 pressCancelButton();
             _pantalla.getTxtCodigo().setText("");
             _pantalla.getTxtDescripcion().setText("");
             _pantalla.getTxtCodigo().setText("");
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(_pantalla, "No se pudo completar la operación", "Error al guardar", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(_pantalla, "No se pudo completar la operación.\nError: "+ ex.getMessage(), "Error al guardar", JOptionPane.ERROR_MESSAGE);
         }
         
     }

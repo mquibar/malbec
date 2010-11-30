@@ -12,6 +12,7 @@
 package screens;
 
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import screens.controllers.ctrlAltaEmpleado;
@@ -20,13 +21,12 @@ import screens.controllers.ctrlAltaEmpleado;
  *
  * @author Manuel
  */
-public class AltaEmpleado extends javax.swing.JFrame {
+public class AltaEmpleado extends javax.swing.JInternalFrame {
 
     /** Creates new form AltaEmpleado */
     public AltaEmpleado(ctrlAltaEmpleado control) {
         initComponents();
         _control = control;
-        this.setVisible(true);
     }
 
     /** This method is called from within the constructor to
@@ -316,6 +316,14 @@ public class AltaEmpleado extends javax.swing.JFrame {
 
     public JTextField getTxtPiso() {
         return _txtPiso;
+    }
+
+    public JButton getBtnCancel() {
+        return _btnCancel;
+    }
+
+    public JButton getBtnSave() {
+        return _btnSave;
     }
 
     

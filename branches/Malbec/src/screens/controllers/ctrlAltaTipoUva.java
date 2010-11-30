@@ -79,14 +79,14 @@ public class ctrlAltaTipoUva {
     void pressOkButton(){
         try {
             _gestorAlta.guardarTipoUva(_asignadas.getListRow(), _pantalla.getTxtNombre().getText(), _pantalla.getTxtCodigo().getText(), _pantalla.getTxtDescripcion().getText());
-            JOptionPane.showMessageDialog(_pantalla, "Parcela guardad con exito");
+            JOptionPane.showMessageDialog(_pantalla, "Operación realizada con exito");
             _pantalla.getTxtCodigo().setText("");
             _pantalla.getTxtDescripcion().setText("");
             _pantalla.getTxtNombre().setText("");
             _todas = new TableParcela(_gestorAlta.iniciarAltaTipoUva());
         _asignadas = new TableParcela(new ArrayList<Parcela>());
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(_pantalla, "No se pudo guardar la parcela \n Error: "+ex.getMessage(), "Error al guarda", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(_pantalla, "No se pudo completar la operación \n Error: "+ex.getMessage(), "Error al guarda", JOptionPane.ERROR_MESSAGE);
         }
     }
 

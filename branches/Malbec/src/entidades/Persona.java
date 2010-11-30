@@ -7,6 +7,7 @@ package entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public abstract class Persona implements Serializable {
     protected String dni;
     @Temporal(javax.persistence.TemporalType.DATE)
     protected Date fechaNacimiento;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     protected Domicilio domicilio;
 
     public Integer getId() {

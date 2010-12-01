@@ -24,24 +24,25 @@ public class WorkingDirectory {
 
                 if (url.getProtocol().equals("file")) {
                     File f = new File(url.toURI());
-                    System.out.println("1_ "+f.getPath());
-                    PATH = f.getParentFile().getPath();
+                    //System.out.println("1_ "+f.getPath());
+                    PATH = f.getParentFile().getParentFile().getPath().replaceAll("%20", " ");
 
                 } else if (url.getProtocol().equals("jar")) {
 
                     String expected = "!/" + Recurso;
                     String s = url.toString();
                     s = s.substring(4);
-                    s = s.substring(0, s.length() - expected.length() + 1);
+                    s = s.substring(0, s.length() - expected.length() + 1).replaceAll("%20", " ");
                     File f = new File(new URL(s).toURI());
-                    System.out.println("1_ "+f.getPath());
-                    PATH = f.getParentFile().getPath();
+                    //System.out.println("1_ "+f.getPath());
+                    PATH = f.getParentFile().getParentFile().getPath().replaceAll("%20", " ");
 
                 }
             } catch (Exception ex) {
                 PATH=".";
             }
         }
+        System.out.println(PATH);
         return PATH;
     }
 

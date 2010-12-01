@@ -60,4 +60,8 @@ public class Facade {
     public List excecuteQuery(Object entidad, String query){
         return MediatorFactory.getInstance().getMediator(entidad.getClass()).excecuteQuery(query);
     }
+
+    public void closeConection(){
+        ConectionAdmin.getInstance().closeConection();
+    }
 }

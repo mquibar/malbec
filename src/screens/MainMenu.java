@@ -48,9 +48,9 @@ public class MainMenu extends javax.swing.JFrame {
         _mnuRegTipoUva = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        _mnuSalir = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(640, 480));
         getContentPane().setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -87,8 +87,8 @@ public class MainMenu extends javax.swing.JFrame {
         contentMenuItem.setText("Contents");
         helpMenu.add(contentMenuItem);
 
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
+        _mnuSalir.setText("Salir");
+        helpMenu.add(_mnuSalir);
 
         menuBar.add(helpMenu);
 
@@ -105,7 +105,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem _mnuRegParcela;
     private javax.swing.JMenuItem _mnuRegPersonal;
     private javax.swing.JMenuItem _mnuRegTipoUva;
-    private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JMenuItem _mnuSalir;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
@@ -135,6 +135,10 @@ public class MainMenu extends javax.swing.JFrame {
 
     public JDesktopPane getDesktopPane() {
         return _dskPanel;
+    }
+
+    public JMenuItem getMnuSalir() {
+        return _mnuSalir;
     }
 
     

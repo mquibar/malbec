@@ -4,6 +4,7 @@
  */
 package persistencia;
 
+import java.util.Properties;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -30,7 +31,10 @@ class ConectionAdmin {
     }
 
     private ConectionAdmin() {
-        _factory = Persistence.createEntityManagerFactory("MalbecPU");
+        Properties prop = new Properties();
+        prop.put("hibernate.connection.url", "jdbc:derby:"+tools.WorkingDirectory.getPath()+"/.malbecdb;create=true");
+        System.out.println(prop.getProperty("hibernate.connection.url"));
+        _factory = Persistence.createEntityManagerFactory("MalbecPU",prop);
 
     }
 
@@ -96,5 +100,10 @@ class ConectionAdmin {
             _manager = _factory.createEntityManager();
         }
         return _manager;
+    }
+
+    public void closeConection(){
+        if(_manager!=null)
+            _manager.close();
     }
 }

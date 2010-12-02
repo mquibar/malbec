@@ -49,16 +49,16 @@ public class Facade {
         return MediatorFactory.getInstance().getMediator(entidad).findAll();
     }
 
-    public List findInOrder(Object entidad, String orden){
-            return MediatorFactory.getInstance().getMediator(entidad.getClass()).findInOrden(orden);
+    public List findInOrder(Class entidad, String orden){
+            return MediatorFactory.getInstance().getMediator(entidad).findInOrden(orden);
     }
 
-    public List findByCriterio(Object entidad, Criterio criterio){
-        return MediatorFactory.getInstance().getMediator(entidad.getClass()).findByCriterio(criterio);
+    public List findByCriterio(Class entidad, Criterio criterio){
+        return MediatorFactory.getInstance().getMediator(entidad).findByCriterio(criterio);
     }
 
-    public List excecuteQuery(Object entidad, String query){
-        return MediatorFactory.getInstance().getMediator(entidad.getClass()).excecuteQuery(query);
+    public List excecuteQuery(Class entidad, String query){
+        return MediatorFactory.getInstance().getMediator(entidad).excecuteQuery(query);
     }
 
     public void closeConection(){

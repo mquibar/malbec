@@ -59,13 +59,10 @@ class Intermediario<E> {
     public List<E> findByCriterio(Criterio criterio) {
         String sql = "SELECT o FROM " + _clase + " o WHERE " + criterio;
         Query q = ConectionAdmin.getInstance().getManager().createQuery(sql);
-        Map<String, Object> mapa = criterio.toMap();
-        Iterator<String> it = mapa.keySet().iterator();
-        String key;
-        while (it.hasNext()) {
-            key = it.next();
-            q.setParameter(key, mapa.get(key));
+        for (Object[] criteria : criterio.toParameter()) {
+            q.setParameter(String.valueOf(criteria[0]), criteria[1]);
         }
+
         return q.getResultList();
     }
 

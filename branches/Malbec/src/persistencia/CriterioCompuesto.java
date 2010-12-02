@@ -4,6 +4,7 @@
  */
 package persistencia;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,8 +15,10 @@ public class CriterioCompuesto extends Criterio {
 
     private Criterio criterioA;
     private Criterio criterioB;
-    
-    
+
+    public CriterioCompuesto() {
+    }
+   
 
     public Criterio getCriterioA() {
         return criterioA;
@@ -44,6 +47,14 @@ public class CriterioCompuesto extends Criterio {
         mapa.putAll(criterioB.toMap());
         return mapa;
     }
+
+    @Override
+    public List<Object[]> toParameter() {
+        List<Object[]> sql = criterioA.toParameter();
+        sql.addAll(criterioB.toParameter());
+        return sql;
+    }
+
 
 
 

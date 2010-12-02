@@ -74,6 +74,13 @@ public class ctrlMainMenu {
                 exitSystem();
             }
         });
+
+        _pantalla.getMnuListPersonal().addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                new ctrlListadoPersonal(_pantalla.getDesktopPane());
+            }
+        });
         _pantalla.addWindowListener(new WindowListener() {
 
             public void windowOpened(WindowEvent e) {

@@ -6,6 +6,7 @@
 package modulo.consultas;
 
 import entidades.Empleado;
+import java.util.List;
 
 /**
  *
@@ -16,5 +17,9 @@ public class ExpertoConsultarEmpleado {
     public Empleado consultarEmpleadoPorCodigo (String codigo) {
         //Empleado empleado = (new IntermediarioEmpleado()).consultarPorCodigo(codigo);
         return new Empleado();
+    }
+
+    public List<Empleado> listarEmpleados(){
+        return persistencia.Facade.getInstance().findAll(Empleado.class);
     }
 }

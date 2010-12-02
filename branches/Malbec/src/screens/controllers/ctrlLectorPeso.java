@@ -39,12 +39,18 @@ public class ctrlLectorPeso {
         _pantalla.getTxtBarCode().addKeyListener(new KeyListener() {
 
             public void keyTyped(KeyEvent e) {
+                checkKey(e);
             }
 
             public void keyPressed(KeyEvent e) {
+                checkKey(e);
             }
 
             public void keyReleased(KeyEvent e) {
+                checkKey(e);
+            }
+
+            private void checkKey(KeyEvent e){
                 if(e.getKeyCode()==KeyEvent.VK_ENTER)
                     pressOkButton();
             }
@@ -87,6 +93,7 @@ public class ctrlLectorPeso {
             double peso = _exp.cargarCaja(_pantalla.getTxtBarCode().getText());
             _pantalla.getTxtPeso().setText(parcearPeso(peso));
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

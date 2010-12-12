@@ -6,10 +6,12 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,7 +24,10 @@ public class TipoCaja implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Integer id;
     protected String nombreTipo;
-    protected double pesoVacia;
+    protected double pesoLleno;
+    protected String descripcion;
+    @OneToMany
+    protected List<ComponenteConservante> componentes;
 
     public String getNombreTipo() {
         return nombreTipo;
@@ -32,12 +37,12 @@ public class TipoCaja implements Serializable {
         this.nombreTipo = nombreTipo;
     }
 
-    public double getPesoVacia() {
-        return pesoVacia;
+    public double getPesoLleno() {
+        return pesoLleno;
     }
 
-    public void setPesoVacia(double pesoVacia) {
-        this.pesoVacia = pesoVacia;
+    public void setPesoLleno(double pesoVacia) {
+        this.pesoLleno = pesoVacia;
     }
     
 
@@ -47,6 +52,23 @@ public class TipoCaja implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    
+    public List<ComponenteConservante> getComponentes() {
+        return componentes;
+    }
+
+    public void setComponentes(List<ComponenteConservante> componentes) {
+        this.componentes = componentes;
     }
 
     @Override

@@ -32,7 +32,7 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
     }
 
     public int getRowCount() {
-        if (_listRow == null || _listRow.size()==0) {
+        if (_listRow == null || _listRow.isEmpty()) {
             return 0;
         }
         return _listRow.size();
@@ -44,7 +44,7 @@ public abstract class ModelSystemTable<E> extends AbstractTableModel {
     }
 
     public E getSelectedItem(int rowIndex) {
-        if (_listRow == null || _listRow.size()==0) {
+        if (_listRow == null || _listRow.isEmpty()) {
             return null;
         }
         return _listRow.get(rowIndex);

@@ -32,7 +32,8 @@ class ConectionAdmin {
 
     private ConectionAdmin() {
         Properties prop = new Properties();
-        prop.put("hibernate.connection.url", "jdbc:derby:"+tools.WorkingDirectory.getPath()+"/.malbecdb;create=true");
+        prop.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/malbecdb");//+tools.WorkingDirectory.getPath()+"/.malbecdb;create=true");
+        prop.put("hibernate.connection.driver_class","org.postgresql.Driver");
         System.out.println(prop.getProperty("hibernate.connection.url"));
         _factory = Persistence.createEntityManagerFactory("MalbecPU",prop);
 

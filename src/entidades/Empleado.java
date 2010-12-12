@@ -7,6 +7,7 @@ package entidades;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Temporal;
 
 /**
@@ -14,6 +15,7 @@ import javax.persistence.Temporal;
  * @author Manuel
  */
 @Entity
+@PrimaryKeyJoinColumn(name="idEmpleado",referencedColumnName="id")
 public class Empleado extends Persona {
 
     protected String codigo;

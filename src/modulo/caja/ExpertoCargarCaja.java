@@ -14,6 +14,7 @@ import java.util.List;
 import modulo.empleado.ExpConsultarEmpleado;
 import modulo.parcelaTipoUva.ExpConsultarTipoUva;
 import persistencia.Facade;
+import systemException.InvalidDataException;
 
 /**
  *
@@ -24,6 +25,7 @@ public class ExpertoCargarCaja {
     private TipoUva _tipoUva;
     private Parcela _parcela;
     private int reintentos = 3;
+    private Caja ultima = null;
 
     /**
      * Lista todos los tipos de uva que la finca posee
@@ -63,24 +65,30 @@ public class ExpertoCargarCaja {
      * @param codigo: Codigo del empleado
      * @return: el peso leido por la balanza
      */
-    public double cargarCaja(String codigo) {
+    public double cargarCaja(String codigo) throws InvalidDataException {
         Empleado empleado = (new ExpConsultarEmpleado()).consultarEmpleadoPorCodigo(codigo);
+        if (empleado == null) {
+            throw new InvalidDataException("empleado", 0.0);
+        }
         Caja caja = new Caja();
+        double peso = 0;
         try {
 
-            double peso = (new driverBalanza(reintentos)).getPeso();
-            if (verificarPeso(peso)) {
-                caja.setFechaEmpaque(new Date());
-                caja.setParcela(_parcela);
-                caja.setTipoUva(_tipoUva);
-                caja.setEmpleado(empleado);
-                caja.setPeso(peso);
-                Facade.getInstance().beginTx();
-                Facade.getInstance().guardar(caja);
-                Facade.getInstance().commitTx();
-                return peso;
-            }
+            peso = (new driverBalanza(reintentos)).getPeso();
+            verificarPeso(peso);
+            caja.setFechaEmpaque(new Date());
+            caja.setParcela(_parcela);
+            caja.setTipoUva(_tipoUva);
+            caja.setEmpleado(empleado);
+            caja.setPeso(peso);
+            verificarCaja(caja);
+            Facade.getInstance().beginTx();
+            Facade.getInstance().guardar(caja);
+            Facade.getInstance().commitTx();
+            return peso;
 
+        } catch (InvalidDataException ie) {
+            throw new InvalidDataException(ie.getAtributo(), ie.getValor());
         } catch (Exception ex) {
             System.out.println("Exception: " + ex.getMessage());
         }
@@ -94,15 +102,24 @@ public class ExpertoCargarCaja {
      * @param peso: peso a verificar
      * @return
      */
-    private boolean verificarPeso(double peso) {
+    private void verificarPeso(double peso) throws InvalidDataException {
 
-        double limitesuperior = 0.500;
-        double limiteinferior = 0.300;
+        double limitesuperior = 4.500;
+        double limiteinferior = 4.400;
 
-        if (peso < limitesuperior && peso > limiteinferior) {
-            return true;
-        } else {
-            return false;
+        if (!(peso < limitesuperior && peso > limiteinferior)) {
+            throw new InvalidDataException("peso caja", peso);
         }
+    }
+
+    private void verificarCaja(Caja caja) throws InvalidDataException {
+        if (ultima == null) {
+            ultima = caja;
+            return;
+        }
+        if (ultima.getEmpleado().equals(caja.getEmpleado()) && ultima.getPeso() == caja.getPeso()) {
+            throw new InvalidDataException("Caja", ultima.getPeso());
+        }
+        ultima = caja;
     }
 }

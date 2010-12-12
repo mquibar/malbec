@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
@@ -39,6 +39,11 @@
             <MenuItem class="javax.swing.JMenuItem" name="_mnuRegTipoUva">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrar Tipo Uva"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="_mnuRegTipoCaja">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Tipo Caja"/>
               </Properties>
             </MenuItem>
           </SubComponents>

@@ -5,6 +5,7 @@
 package screens.controllers;
 
 import entidades.Parcela;
+import entidades.TipoCaja;
 import entidades.TipoUva;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -16,6 +17,7 @@ import modulo.caja.ExpertoCargarCaja;
 import screens.LectorPeso;
 import screens.PopUpParcela;
 import screens.models.tablas.TableParcela;
+import screens.models.tablas.TableTipoCaja;
 import screens.models.tablas.TableTipoUva;
 import systemException.InvalidDataException;
 
@@ -86,10 +88,15 @@ public final class ctrlLectorPeso {
                 Parcela p = ((TableParcela) popup.getModel()).getSelectedItem(selectedRow);
                 _pantalla.getTxtParcela().setText(p.getNombre());
                 _exp.asignarParcela(p);
+                popup.setModel(new TableTipoCaja(_exp.listarTipoCaja()));
+                paso++;
+                return;
+            case 2:
+                TipoCaja tc =((TableTipoCaja)popup.getModel()).getSelectedItem(selectedRow);
+                _exp.asignarTipoCaja(tc);
                 paso = 0;
                 popup.dispose();
                 _pantalla.setVisible(true);
-                return;
         }
     }
 

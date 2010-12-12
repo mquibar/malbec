@@ -8,11 +8,13 @@ import driver.driverbalanza.driverBalanza;
 import entidades.Caja;
 import entidades.Empleado;
 import entidades.Parcela;
+import entidades.TipoCaja;
 import entidades.TipoUva;
 import java.util.Date;
 import java.util.List;
 import modulo.empleado.ExpConsultarEmpleado;
 import modulo.parcelaTipoUva.ExpConsultarTipoUva;
+import modulo.tipoCaja.ExpertoConsultarTipoCaja;
 import persistencia.Facade;
 import systemException.InvalidDataException;
 
@@ -26,6 +28,7 @@ public class ExpertoCargarCaja {
     private Parcela _parcela;
     private int reintentos = 3;
     private Caja ultima = null;
+    private TipoCaja _tipoCaja;
 
     /**
      * Lista todos los tipos de uva que la finca posee
@@ -49,6 +52,16 @@ public class ExpertoCargarCaja {
     }
 
     /**
+     * lista los tipos de caja del sistema, para iniciar el dia
+     *
+     * @return List <TipoCaja> listado de tipos de caja
+     */
+    public List<TipoCaja> listarTipoCaja () {
+
+        return (new ExpertoConsultarTipoCaja()).consultarTipoCaja();
+    }
+
+    /**
      * Asigna la parcela indicada con la cual se trabajará ese día
      *
      * @param parcela: parcela seleccionada por el usuario
@@ -57,6 +70,10 @@ public class ExpertoCargarCaja {
     public boolean asignarParcela(Parcela parcela) {
         _parcela = parcela;
         return true;
+    }
+
+    public void asignarTipoCaja(TipoCaja tipoCaja){
+        _tipoCaja= tipoCaja;
     }
 
     /**

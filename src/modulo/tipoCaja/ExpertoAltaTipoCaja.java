@@ -22,7 +22,7 @@ public class ExpertoAltaTipoCaja {
      *
      * @peso el peso que va a contener el tipo de caja
      * @componentes componentes agregados a la caja
-     * @param parametros: nombre, descripcion
+     * @param parametros nombre, descripcion
      * @throws Exception
      */
     public void guardar (double peso, List <ComponenteConservante> componentes, String... parametros) throws Exception {
@@ -34,7 +34,7 @@ public class ExpertoAltaTipoCaja {
         }
 
         tipo.setPesoLleno(peso);
-        tipo.setComponentes(componentes);
+        //tipo.setComponentes(componentes);
         tipo.setNombreTipo(parametros[0].toUpperCase());
         tipo.setDescripcion(parametros[1].toUpperCase());
 

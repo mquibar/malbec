@@ -7,6 +7,7 @@ package entidades;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class TipoCaja implements Serializable {
     protected String nombreTipo;
     protected double pesoLleno;
     protected String descripcion;
-    @OneToMany
+    @OneToMany(cascade=CascadeType.REMOVE)
     protected List<ComponenteConservante> componentes;
 
     public String getNombreTipo() {

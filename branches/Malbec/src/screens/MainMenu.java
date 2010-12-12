@@ -46,6 +46,7 @@ public class MainMenu extends javax.swing.JFrame {
         _mnuIniciarDia = new javax.swing.JMenuItem();
         _mnuRegParcela = new javax.swing.JMenuItem();
         _mnuRegTipoUva = new javax.swing.JMenuItem();
+        _mnuRegTipoCaja = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         _mnuSalir = new javax.swing.JMenuItem();
@@ -80,6 +81,9 @@ public class MainMenu extends javax.swing.JFrame {
         _mnuRegTipoUva.setText("Registrar Tipo Uva");
         editMenu.add(_mnuRegTipoUva);
 
+        _mnuRegTipoCaja.setText("Registrar Tipo Caja");
+        editMenu.add(_mnuRegTipoCaja);
+
         menuBar.add(editMenu);
 
         helpMenu.setText("Ayuda");
@@ -104,6 +108,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem _mnuListPersonal;
     private javax.swing.JMenuItem _mnuRegParcela;
     private javax.swing.JMenuItem _mnuRegPersonal;
+    private javax.swing.JMenuItem _mnuRegTipoCaja;
     private javax.swing.JMenuItem _mnuRegTipoUva;
     private javax.swing.JMenuItem _mnuSalir;
     private javax.swing.JMenuItem contentMenuItem;
@@ -139,6 +144,10 @@ public class MainMenu extends javax.swing.JFrame {
 
     public JMenuItem getMnuSalir() {
         return _mnuSalir;
+    }
+
+    public JMenuItem getMnuRegTipoCaja() {
+        return _mnuRegTipoCaja;
     }
 
     

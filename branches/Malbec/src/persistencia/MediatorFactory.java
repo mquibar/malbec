@@ -18,7 +18,7 @@ class MediatorFactory {
     private static MediatorFactory _instance=null;
     private Map<Class,Intermediario> _mapaIntermediarios;
 
-    private enum intermediarios{CAJA,PARCELA,TIPOUVA,LOCALIDAD, EMPLEADO, DOMICILIO}
+    private enum intermediarios{CAJA,PARCELA,TIPOUVA,LOCALIDAD, EMPLEADO, DOMICILIO,TIPOCAJA}
 
     private MediatorFactory() {
         _mapaIntermediarios=new HashMap<Class, Intermediario>();
@@ -55,6 +55,9 @@ class MediatorFactory {
                 break;
             case DOMICILIO:
                 interm=new Intermediario<Domicilio>("Domicilio");
+                break;
+            case TIPOCAJA:
+                interm = new Intermediario<TipoCaja>("TipoCaja");
                 break;
         }
         

@@ -81,6 +81,13 @@ public class ctrlMainMenu {
                 new ctrlListadoPersonal(_pantalla.getDesktopPane());
             }
         });
+
+        _pantalla.getMnuRegTipoCaja().addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                new ctrlAltaTipoCaja(_pantalla.getDesktopPane());
+            }
+        });
         _pantalla.addWindowListener(new WindowListener() {
 
             public void windowOpened(WindowEvent e) {

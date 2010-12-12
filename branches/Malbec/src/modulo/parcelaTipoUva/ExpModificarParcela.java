@@ -38,7 +38,7 @@ public class ExpModificarParcela {
         parcela.setDescripcion(parametros[2].toUpperCase());
 
         Facade.getInstance().beginTx();
-        Facade.getInstance().guardar(parcela);
+        Facade.getInstance().actualizar(parcela);
         Facade.getInstance().commitTx();
 
     }

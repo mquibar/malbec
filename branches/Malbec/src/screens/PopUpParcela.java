@@ -152,7 +152,9 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void _btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__btnSiguienteActionPerformed
-        _control.pressNextButton(_tblTipoUva.getSelectedRow());
+        int selected = _tblTipoUva.getSelectedRow();
+        if(selected<0) selected=0;
+        _control.pressNextButton(0);
     }//GEN-LAST:event__btnSiguienteActionPerformed
 
 

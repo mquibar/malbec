@@ -33,6 +33,9 @@ public class Caja implements Serializable {
     private Parcela parcela;
     @ManyToOne
     private TipoUva tipoUva;
+    @ManyToOne
+    private TipoCaja tipoCaja;
+
 
     public Empleado getEmpleado() {
         return empleado;
@@ -72,6 +75,14 @@ public class Caja implements Serializable {
 
     public void setTipoUva(TipoUva tipoUva) {
         this.tipoUva = tipoUva;
+    }
+
+    public TipoCaja getTipoCaja() {
+        return tipoCaja;
+    }
+
+    public void setTipoCaja(TipoCaja tipoCaja) {
+        this.tipoCaja = tipoCaja;
     }
 
 

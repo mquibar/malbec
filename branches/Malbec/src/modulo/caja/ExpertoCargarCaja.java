@@ -92,8 +92,9 @@ public class ExpertoCargarCaja {
         try {
 
             peso = (new driverBalanza(reintentos)).getPeso();
-            verificarPeso(peso);
+            verificarPeso(peso, _tipoCaja.getPesoLleno());
             caja.setFechaEmpaque(new Date());
+            caja.setTipoCaja(_tipoCaja);
             caja.setParcela(_parcela);
             caja.setTipoUva(_tipoUva);
             caja.setEmpleado(empleado);
@@ -117,12 +118,17 @@ public class ExpertoCargarCaja {
      * Verifica que el peso este entre los limites indicados
      *
      * @param peso: peso a verificar
+     * @param pesoLLena: peso segun el tipo de caja seleccionado
      * @return
      */
-    private void verificarPeso(double peso) throws InvalidDataException {
+    private void verificarPeso(double peso, double pesoLLena) throws InvalidDataException {
 
-        double limitesuperior = 4.500;
-        double limiteinferior = 4.400;
+        /*
+         * Los valores que se le suman y se restan al peso llena, se tienen que leer del archivo
+         * de parametros
+         */
+        double limitesuperior = pesoLLena + 0.500;
+        double limiteinferior = pesoLLena - 0.400;
 
         if (!(peso < limitesuperior && peso > limiteinferior)) {
             throw new InvalidDataException("peso caja", peso);

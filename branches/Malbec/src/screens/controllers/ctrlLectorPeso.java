@@ -8,6 +8,9 @@ import entidades.Parcela;
 import entidades.TipoCaja;
 import entidades.TipoUva;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
@@ -72,6 +75,36 @@ public final class ctrlLectorPeso {
 
     public void selectedTipoUva() {
         popup.setModel(new TableTipoUva(_exp.listarTipoUva()));
+        popup.getBtnCancel().addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                popup.dispose();
+            }
+        });
+        popup.getTxtNombre().addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    int idx = popup.getTblTipoUva().getSelectedRow();
+                    if (idx < 0) {
+                        idx = 0;
+                    }
+                    pressNextButton(idx);
+                }
+            }
+        });
+        popup.getTxtCodigo().addKeyListener(new KeyAdapter() {
+        @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    int idx = popup.getTblTipoUva().getSelectedRow();
+                    if (idx < 0) {
+                        idx = 0;
+                    }
+                    pressNextButton(idx);
+                }
+            }});
         popup.setVisible(true);
     }
 
@@ -92,7 +125,8 @@ public final class ctrlLectorPeso {
                 paso++;
                 return;
             case 2:
-                TipoCaja tc =((TableTipoCaja)popup.getModel()).getSelectedItem(selectedRow);
+                TipoCaja tc = ((TableTipoCaja) popup.getModel()).getSelectedItem(selectedRow);
+                _pantalla.getTxtTipo().setText(tc.getNombreTipo());
                 _exp.asignarTipoCaja(tc);
                 paso = 0;
                 popup.dispose();

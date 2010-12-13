@@ -143,6 +143,7 @@
     <Component class="javax.swing.JButton" name="_btnSiguiente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Siguiente &gt;&gt;"/>
+        <Property name="selected" type="boolean" value="true"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_btnSiguienteActionPerformed"/>

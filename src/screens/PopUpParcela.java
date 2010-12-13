@@ -11,6 +11,8 @@
 
 package screens;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.TableModel;
 import screens.controllers.ctrlLectorPeso;
@@ -50,6 +52,15 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
     public void setTxtNombre(JTextField _txtNombre) {
         this._txtNombre = _txtNombre;
     }
+
+    public JButton getBtnCancel() {
+        return _btnCancel;
+    }
+
+    public JTable getTblTipoUva() {
+        return _tblTipoUva;
+    }
+    
     
     /** This method is called from within the constructor to
      * initialize the form.
@@ -68,6 +79,7 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         _tblTipoUva = new javax.swing.JTable();
         _btnSiguiente = new javax.swing.JButton();
+        _btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -123,28 +135,36 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
             }
         });
 
+        _btnCancel.setText("Cancelar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(_btnSiguiente, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(_btnCancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(_btnSiguiente))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(_btnSiguiente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(_btnSiguiente)
+                    .addComponent(_btnCancel))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -158,6 +178,7 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton _btnCancel;
     private javax.swing.JButton _btnSiguiente;
     private javax.swing.JTable _tblTipoUva;
     private javax.swing.JTextField _txtCodigo;

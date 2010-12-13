@@ -38,16 +38,12 @@ public class LectorPeso extends javax.swing.JInternalFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         _txtFecha = new javax.swing.JFormattedTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         _txtUva = new javax.swing.JTextField();
         _txtParcela = new javax.swing.JTextField();
+        _txtTipo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         _txtBarCode = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         _txtPeso = new javax.swing.JTextField();
 
         setClosable(true);
@@ -56,66 +52,54 @@ public class LectorPeso extends javax.swing.JInternalFrame {
         setResizable(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, java.awt.Color.white), "Datos de Carga", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), java.awt.Color.lightGray)); // NOI18N
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("Fecha");
-
+        _txtFecha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        _txtFecha.setEditable(false);
         _txtFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        _txtFecha.setText("  /  /    ");
-        _txtFecha.setEnabled(false);
+        _txtFecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(1, 4, 1, 4);
+        jPanel1.add(_txtFecha, gridBagConstraints);
 
-        jLabel2.setText("UVa");
+        _txtUva.setEditable(false);
+        _txtUva.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        _txtUva.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Parcela", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(1, 4, 1, 4);
+        jPanel1.add(_txtUva, gridBagConstraints);
 
-        jLabel3.setText("Parcela");
+        _txtParcela.setEditable(false);
+        _txtParcela.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        _txtParcela.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        _txtParcela.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Parcela", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(1, 4, 1, 4);
+        jPanel1.add(_txtParcela, gridBagConstraints);
 
-        _txtUva.setEnabled(false);
-
-        _txtParcela.setFont(new java.awt.Font("Tahoma", 1, 14));
-        _txtParcela.setEnabled(false);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(_txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                    .addComponent(_txtParcela, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                    .addComponent(_txtUva, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(_txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(_txtUva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(_txtParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        _txtTipo.setEditable(false);
+        _txtTipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        _txtTipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        _txtTipo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo Caja", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(1, 4, 1, 4);
+        jPanel1.add(_txtTipo, gridBagConstraints);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, java.awt.Color.white), "Datos Caja"));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setText("Codigo Personal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
-        jPanel2.add(jLabel4, gridBagConstraints);
+        _txtBarCode.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Código Empleado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -124,18 +108,13 @@ public class LectorPeso extends javax.swing.JInternalFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 40, 3, 40);
         jPanel2.add(_txtBarCode, gridBagConstraints);
 
-        jLabel5.setText("PESO");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
-        jPanel2.add(jLabel5, gridBagConstraints);
-
         _txtPeso.setBackground(new java.awt.Color(51, 51, 51));
-        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 50));
+        _txtPeso.setEditable(false);
+        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 60)); // NOI18N
         _txtPeso.setForeground(new java.awt.Color(0, 153, 0));
         _txtPeso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         _txtPeso.setText("00,000");
+        _txtPeso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Peso", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -148,11 +127,11 @@ public class LectorPeso extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -162,7 +141,7 @@ public class LectorPeso extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,12 +152,8 @@ public class LectorPeso extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField _txtFecha;
     private javax.swing.JTextField _txtParcela;
     private javax.swing.JTextField _txtPeso;
+    private javax.swing.JTextField _txtTipo;
     private javax.swing.JTextField _txtUva;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
@@ -223,4 +198,9 @@ public class LectorPeso extends javax.swing.JInternalFrame {
     public void setTxtUva(JTextField _txtUva) {
         this._txtUva = _txtUva;
     }
+
+    public JTextField getTxtTipo() {
+        return _txtTipo;
+    }
+    
 }

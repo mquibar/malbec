@@ -47,6 +47,10 @@ public class MainMenu extends javax.swing.JFrame {
         _mnuRegParcela = new javax.swing.JMenuItem();
         _mnuRegTipoUva = new javax.swing.JMenuItem();
         _mnuRegTipoCaja = new javax.swing.JMenuItem();
+        reportMenu = new javax.swing.JMenu();
+        _mnuRepDiario = new javax.swing.JMenuItem();
+        _mnuRepResumFecha = new javax.swing.JMenuItem();
+        _mnuRepDetaFecha = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         _mnuSalir = new javax.swing.JMenuItem();
@@ -86,6 +90,19 @@ public class MainMenu extends javax.swing.JFrame {
 
         menuBar.add(editMenu);
 
+        reportMenu.setText("Reportes");
+
+        _mnuRepDiario.setText("Reporte Diario");
+        reportMenu.add(_mnuRepDiario);
+
+        _mnuRepResumFecha.setText("Reporte Resumido por Fecha");
+        reportMenu.add(_mnuRepResumFecha);
+
+        _mnuRepDetaFecha.setText("Reporte Detallado por Fecha");
+        reportMenu.add(_mnuRepDetaFecha);
+
+        menuBar.add(reportMenu);
+
         helpMenu.setText("Ayuda");
 
         contentMenuItem.setText("Contents");
@@ -110,12 +127,16 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem _mnuRegPersonal;
     private javax.swing.JMenuItem _mnuRegTipoCaja;
     private javax.swing.JMenuItem _mnuRegTipoUva;
+    private javax.swing.JMenuItem _mnuRepDetaFecha;
+    private javax.swing.JMenuItem _mnuRepDiario;
+    private javax.swing.JMenuItem _mnuRepResumFecha;
     private javax.swing.JMenuItem _mnuSalir;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu reportMenu;
     // End of variables declaration//GEN-END:variables
     private ctrlMainMenu _contro;
     public JMenuItem getMnuIniciarDia() {
@@ -150,5 +171,16 @@ public class MainMenu extends javax.swing.JFrame {
         return _mnuRegTipoCaja;
     }
 
+    public JMenuItem getMnuRepDetaFecha() {
+        return _mnuRepDetaFecha;
+    }
+
+    public JMenuItem getMnuRepDiario() {
+        return _mnuRepDiario;
+    }
+
+    public JMenuItem getMnuRepResumFecha() {
+        return _mnuRepResumFecha;
+    }
     
 }

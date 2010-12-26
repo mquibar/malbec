@@ -135,11 +135,20 @@ public class ExpertoCargarCaja {
         }
     }
 
+    /**
+     * Verifica que la caja ingresada no sea del mismo peso ni empleado que la anterior
+     *
+     * @param caja: ultima caja ingresada en el sistema
+     * @throws InvalidDataException
+     */
     private void verificarCaja(Caja caja) throws InvalidDataException {
         if (ultima == null) {
             ultima = caja;
             return;
         }
+        /* Si el ultimo empleado ingresado es igual al anterior y el peso de la caja ingresada
+         * es tambien exactamente igual   
+         */
         if (ultima.getEmpleado().equals(caja.getEmpleado()) && ultima.getPeso() == caja.getPeso()) {
             throw new InvalidDataException("Caja", ultima.getPeso());
         }

@@ -9,11 +9,10 @@
  * Created on 02/12/2010, 12:46:41
  */
 
-package screens;
+package screens.empleado;
 
 import javax.swing.JButton;
 import javax.swing.JTable;
-import screens.controllers.ctrlListadoPersonal;
 
 /**
  *

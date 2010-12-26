@@ -13,7 +13,6 @@ package screens;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JMenuItem;
-import screens.controllers.ctrlMainMenu;
 
 /**
  *
@@ -48,9 +47,8 @@ public class MainMenu extends javax.swing.JFrame {
         _mnuRegTipoUva = new javax.swing.JMenuItem();
         _mnuRegTipoCaja = new javax.swing.JMenuItem();
         reportMenu = new javax.swing.JMenu();
-        _mnuRepDiario = new javax.swing.JMenuItem();
-        _mnuRepResumFecha = new javax.swing.JMenuItem();
-        _mnuRepDetaFecha = new javax.swing.JMenuItem();
+        _mnuRepResumido = new javax.swing.JMenuItem();
+        _mnuRepDetallado = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         _mnuSalir = new javax.swing.JMenuItem();
@@ -92,14 +90,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         reportMenu.setText("Reportes");
 
-        _mnuRepDiario.setText("Reporte Diario");
-        reportMenu.add(_mnuRepDiario);
+        _mnuRepResumido.setText("Reporte Resumido por Fecha");
+        reportMenu.add(_mnuRepResumido);
 
-        _mnuRepResumFecha.setText("Reporte Resumido por Fecha");
-        reportMenu.add(_mnuRepResumFecha);
-
-        _mnuRepDetaFecha.setText("Reporte Detallado por Fecha");
-        reportMenu.add(_mnuRepDetaFecha);
+        _mnuRepDetallado.setText("Reporte Detallado por Fecha");
+        reportMenu.add(_mnuRepDetallado);
 
         menuBar.add(reportMenu);
 
@@ -127,9 +122,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem _mnuRegPersonal;
     private javax.swing.JMenuItem _mnuRegTipoCaja;
     private javax.swing.JMenuItem _mnuRegTipoUva;
-    private javax.swing.JMenuItem _mnuRepDetaFecha;
-    private javax.swing.JMenuItem _mnuRepDiario;
-    private javax.swing.JMenuItem _mnuRepResumFecha;
+    private javax.swing.JMenuItem _mnuRepDetallado;
+    private javax.swing.JMenuItem _mnuRepResumido;
     private javax.swing.JMenuItem _mnuSalir;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenu editMenu;
@@ -171,16 +165,12 @@ public class MainMenu extends javax.swing.JFrame {
         return _mnuRegTipoCaja;
     }
 
-    public JMenuItem getMnuRepDetaFecha() {
-        return _mnuRepDetaFecha;
+    public JMenuItem getMnuRepDetallado() {
+        return _mnuRepDetallado;
     }
 
-    public JMenuItem getMnuRepDiario() {
-        return _mnuRepDiario;
-    }
-
-    public JMenuItem getMnuRepResumFecha() {
-        return _mnuRepResumFecha;
+    public JMenuItem getMnuRepResumido() {
+        return _mnuRepResumido;
     }
     
 }

@@ -9,11 +9,10 @@
  * Created on 21-nov-2010, 12:34:31
  */
 
-package screens;
+package screens.produccion;
 
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
-import screens.controllers.ctrlLectorPeso;
 
 /**
  *
@@ -54,7 +53,7 @@ public class LectorPeso extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, java.awt.Color.white), "Datos de Carga", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), java.awt.Color.lightGray)); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        _txtFecha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        _txtFecha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         _txtFecha.setEditable(false);
         _txtFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         _txtFecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -66,7 +65,7 @@ public class LectorPeso extends javax.swing.JInternalFrame {
 
         _txtUva.setEditable(false);
         _txtUva.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        _txtUva.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Parcela", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        _txtUva.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Parcela", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -75,9 +74,9 @@ public class LectorPeso extends javax.swing.JInternalFrame {
         jPanel1.add(_txtUva, gridBagConstraints);
 
         _txtParcela.setEditable(false);
-        _txtParcela.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        _txtParcela.setFont(new java.awt.Font("Tahoma", 1, 14));
         _txtParcela.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        _txtParcela.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Parcela", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        _txtParcela.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Parcela", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -86,9 +85,9 @@ public class LectorPeso extends javax.swing.JInternalFrame {
         jPanel1.add(_txtParcela, gridBagConstraints);
 
         _txtTipo.setEditable(false);
-        _txtTipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        _txtTipo.setFont(new java.awt.Font("Tahoma", 1, 12));
         _txtTipo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        _txtTipo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo Caja", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        _txtTipo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo Caja", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -99,7 +98,7 @@ public class LectorPeso extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, java.awt.Color.white), "Datos Caja"));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        _txtBarCode.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Código Empleado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        _txtBarCode.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Código Empleado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -110,7 +109,7 @@ public class LectorPeso extends javax.swing.JInternalFrame {
 
         _txtPeso.setBackground(new java.awt.Color(51, 51, 51));
         _txtPeso.setEditable(false);
-        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 60)); // NOI18N
+        _txtPeso.setFont(new java.awt.Font("DS-Digital", 1, 60));
         _txtPeso.setForeground(new java.awt.Color(0, 153, 0));
         _txtPeso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         _txtPeso.setText("00,000");

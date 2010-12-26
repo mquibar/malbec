@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package screens.controllers;
+package screens.produccion;
 
 import entidades.Parcela;
 import entidades.TipoCaja;
@@ -17,8 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JDesktopPane;
 import modulo.caja.ExpertoCargarCaja;
-import screens.LectorPeso;
-import screens.PopUpParcela;
 import screens.models.tablas.TableParcela;
 import screens.models.tablas.TableTipoCaja;
 import screens.models.tablas.TableTipoUva;

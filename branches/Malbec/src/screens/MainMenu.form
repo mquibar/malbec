@@ -53,17 +53,12 @@
             <Property name="text" type="java.lang.String" value="Reportes"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="_mnuRepDiario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Reporte Diario"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="_mnuRepResumFecha">
+            <MenuItem class="javax.swing.JMenuItem" name="_mnuRepResumido">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reporte Resumido por Fecha"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="_mnuRepDetaFecha">
+            <MenuItem class="javax.swing.JMenuItem" name="_mnuRepDetallado">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reporte Detallado por Fecha"/>
               </Properties>

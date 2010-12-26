@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package screens.controllers;
+package screens.produccion;
 
 import entidades.Parcela;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import modulo.parcelaTipoUva.ExpAltaTipoUva;
-import screens.AltaTipoUva;
 import screens.models.tablas.TableParcela;
 
 /**

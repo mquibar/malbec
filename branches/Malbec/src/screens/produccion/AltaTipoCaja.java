@@ -9,7 +9,7 @@
  * Created on 12/12/2010, 17:37:59
  */
 
-package screens;
+package screens.produccion;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;

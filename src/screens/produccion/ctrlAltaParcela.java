@@ -3,14 +3,13 @@
  * and open the template in the editor.
  */
 
-package screens.controllers;
+package screens.produccion;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import modulo.parcelaTipoUva.ExpAltaParcela;
-import screens.AltaParcela;
 
 /**
  *

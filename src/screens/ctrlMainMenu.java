@@ -2,15 +2,23 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package screens.controllers;
+package screens;
 
+import screens.produccion.ctrlAltaTipoUva;
+import screens.produccion.ctrlAltaParcela;
+import screens.produccion.ctrlLectorPeso;
+import screens.produccion.ctrlAltaTipoCaja;
+import screens.empleado.ctrlAltaEmpleado;
+import screens.empleado.ctrlListadoPersonal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.text.ParseException;
+import javax.swing.JDesktopPane;
 import javax.swing.UnsupportedLookAndFeelException;
-import screens.MainMenu;
+import screens.reports.CtrlReporteDetallado;
+import screens.reports.CtrlReporteResumido;
 
 /**
  *
@@ -18,7 +26,7 @@ import screens.MainMenu;
  */
 public class ctrlMainMenu {
 
-    private MainMenu _pantalla;
+    private static MainMenu _pantalla;
 
     public static void main(String[] args) {
 
@@ -88,28 +96,26 @@ public class ctrlMainMenu {
                 new ctrlAltaTipoCaja(_pantalla.getDesktopPane());
             }
         });
-        _pantalla.addWindowListener(new WindowListener() {
 
-            public void windowOpened(WindowEvent e) {
+        _pantalla.getMnuRepDetallado().addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                new CtrlReporteDetallado();
             }
+        });
 
-            public void windowClosing(WindowEvent e) {
+        _pantalla.getMnuRepResumido().addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                new CtrlReporteResumido();
             }
+        });
 
+        _pantalla.addWindowListener(new WindowAdapter() {
+
+            @Override
             public void windowClosed(WindowEvent e) {
                 exitSystem();
-            }
-
-            public void windowIconified(WindowEvent e) {
-            }
-
-            public void windowDeiconified(WindowEvent e) {
-            }
-
-            public void windowActivated(WindowEvent e) {
-            }
-
-            public void windowDeactivated(WindowEvent e) {
             }
         });
     }
@@ -117,5 +123,9 @@ public class ctrlMainMenu {
     void exitSystem() {
         persistencia.Facade.getInstance().closeConection();
         System.exit(0);
+    }
+
+    public static JDesktopPane getDestktopPane(){
+        return _pantalla.getDesktopPane();
     }
 }

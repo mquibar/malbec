@@ -9,13 +9,12 @@
  * Created on 21-nov-2010, 12:19:04
  */
 
-package screens;
+package screens.produccion;
 
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.TableModel;
-import screens.controllers.ctrlLectorPeso;
 import screens.models.tablas.ModelSystemTable;
 
 /**

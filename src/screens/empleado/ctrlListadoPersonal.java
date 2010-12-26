@@ -3,13 +3,12 @@
  * and open the template in the editor.
  */
 
-package screens.controllers;
+package screens.empleado;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDesktopPane;
 import modulo.consultas.ExpertoConsultarEmpleado;
-import screens.ListadoPersonal;
 import screens.models.tablas.TableEmployees;
 
 /**

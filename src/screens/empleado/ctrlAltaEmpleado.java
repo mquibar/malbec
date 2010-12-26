@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package screens.controllers;
+package screens.empleado;
 
 import entidades.Localidad;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,6 @@ import java.util.Date;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import modulo.empleado.ExpAltaEmpleado;
-import screens.AltaEmpleado;
 import screens.models.combos.LocalidadComboModel;
 
 /**
@@ -73,7 +72,7 @@ public class ctrlAltaEmpleado {
         try {
             _gestorEmpleado.guardar(localidad, parametros);
             if(JOptionPane.showConfirmDialog(_pantalla, "Operación realizada con exito. \n Desea realizar otra operación?","Guardado",JOptionPane.YES_NO_OPTION)!=0)
-                pressCancelButton();
+                _pantalla.dispose();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(_pantalla, "No se pudo completar la operación.\nError: "+ ex.getMessage(), "Error al guardar", JOptionPane.ERROR_MESSAGE);
         }

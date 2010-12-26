@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDiario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="FECHA_INICIO" class="java.util.Date"/>
+	<parameter name="FECHA_FIN" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT
+     caja."fechaempaque" AS caja_fechaempaque,
+     caja."peso" AS caja_peso,
+     empleado."codigo" AS empleado_codigo,
+     persona."apellido" || ', ' || persona."nombre" AS emp_nombre,
+     tipouva."nombre" AS tipouva_nombre
+FROM
+     "public"."empleado" empleado INNER JOIN "public"."caja" caja ON empleado."idempleado" = caja."empleado_idempleado"
+     INNER JOIN "public"."persona" persona ON empleado."idempleado" = persona."id"
+     INNER JOIN "public"."tipouva" tipouva ON caja."tipouva_id" = tipouva."id"
+where
+    caja."fechaempaque" between $P{FECHA_INICIO} and $P{FECHA_FIN}
+order by
+    caja.id;]]>
+	</queryString>
+	<field name="caja_fechaempaque" class="java.sql.Date"/>
+	<field name="caja_peso" class="java.lang.Double"/>
+	<field name="empleado_codigo" class="java.lang.String"/>
+	<field name="emp_nombre" class="java.lang.String"/>
+	<field name="tipouva_nombre" class="java.lang.String"/>
+	<group name="caja_fechaempaque" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{caja_fechaempaque}]]></groupExpression>
+		<groupHeader>
+			<band height="59">
+				<rectangle>
+					<reportElement mode="Opaque" x="1" y="1" width="554" height="58" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				</rectangle>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement style="SubTitle" x="186" y="1" width="150" height="24" forecolor="#006600"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{caja_fechaempaque}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="407" y="1" width="136" height="27" forecolor="#006600"/>
+					<textElement>
+						<font size="18" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{tipouva_nombre}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="336" y="37" width="90" height="15"/>
+					<textElement/>
+					<text><![CDATA[Peso]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="5" y="37" width="138" height="15"/>
+					<textElement/>
+					<text><![CDATA[Codigo Empleado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="163" y="37" width="138" height="15"/>
+					<textElement/>
+					<text><![CDATA[Apellido y Nombre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="6" y="1" width="180" height="24" forecolor="#006600"/>
+					<textElement>
+						<font fontName="Arial" size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ Fecha de Empaque]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64"/>
+				<imageExpression class="java.lang.String"><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Finca Achona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="174" height="22"/>
+				<textElement/>
+				<text><![CDATA[Reporte Detallado]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="15" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="164" y="0" width="138" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{emp_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="6" y="0" width="138" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empleado_codigo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.000">
+				<reportElement style="Detail" x="286" y="0" width="86" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{caja_peso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

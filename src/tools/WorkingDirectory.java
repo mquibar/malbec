@@ -13,50 +13,49 @@ import java.net.URL;
  */
 public class WorkingDirectory {
 
-    private static File WORKING_DIRECTORY;
-    private static String PATH;
+    private static File WORKING_DIRECTORY=null;
+    private static String PATH=null;
 
-    public static String getPath() {
-        String Recurso = WorkingDirectory.class.getSimpleName() + ".class";
-        if (PATH == null) {
-            try {
-                URL url = WorkingDirectory.class.getResource(Recurso);
-
-                if (url.getProtocol().equals("file")) {
-                    File f = new File(url.toURI());
-                    //System.out.println("1_ "+f.getPath());
-                    PATH = f.getParentFile().getParentFile().getPath().replaceAll("%20", " ");
-
-                } else if (url.getProtocol().equals("jar")) {
-
-                    String expected = "!/" + Recurso;
-                    String s = url.toString();
-                    s = s.substring(4);
-                    s = s.substring(0, s.length() - expected.length() + 1).replaceAll("%20", " ");
-                    File f = new File(new URL(s).toURI());
-                    //System.out.println("1_ "+f.getPath());
-                    PATH = f.getParentFile().getParentFile().getPath().replaceAll("%20", " ");
-
-                }
-            } catch (Exception ex) {
-                PATH=".";
-            }
-        }
-        System.out.println(PATH);
+    public static String getWorkingDirectoryPath() {
+//        String Recurso = WorkingDirectory.class.getSimpleName() + ".class";
+//        if (PATH == null) {
+//            try {
+//                URL url = WorkingDirectory.class.getResource(Recurso);
+//
+//                if (url.getProtocol().equals("file")) {
+//                    File f = new File(url.toURI());
+//                    PATH = f.getParentFile().getParentFile().getWorkingDirectoryPath().replaceAll("%20", " ");
+//
+//                } else if (url.getProtocol().equals("jar")) {
+//
+//                    String expected = "!/" + Recurso;
+//                    String s = url.toString();
+//                    s = s.substring(4);
+//                    s = s.substring(0, s.length() - expected.length() + 1).replaceAll("%20", " ");
+//                    File f = new File(new URL(s).toURI());
+//                    PATH = f.getParentFile().getParentFile().getWorkingDirectoryPath().replaceAll("%20", " ");
+//
+//                }
+//            } catch (Exception ex) {
+//                PATH=".";
+//            }
+//        }
+        if(PATH!=null)
+            return PATH;
+        if(WORKING_DIRECTORY== null)
+            getWorkingDirectory();
+        PATH = WORKING_DIRECTORY.getPath();
         return PATH;
     }
 
-    public static File get() {
+    public static File getWorkingDirectory() {
 
         String Recurso = WorkingDirectory.class.getSimpleName() + ".class";
         if (WORKING_DIRECTORY == null) {
             try {
                 URL url = WorkingDirectory.class.getResource(Recurso);
-                System.out.println(url);
                 if (url.getProtocol().equals("file")) {
                     File f = new File(url.toURI());
-
-                    System.out.println(f.getPath());
                     do {
 
                         f = f.getParentFile();
@@ -69,8 +68,6 @@ public class WorkingDirectory {
                     s = s.substring(4);
                     s = s.substring(0, s.length() - expected.length() + 1);
                     File f = new File(new URL(s).toURI());
-
-                    System.out.println(f.getPath());
                     do {
 
                         f = f.getParentFile();

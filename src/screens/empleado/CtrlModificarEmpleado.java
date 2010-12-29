@@ -5,29 +5,52 @@
 
 package screens.empleado;
 
+import entidades.Empleado;
 import entidades.Localidad;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
-import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
-import modulo.empleado.ExpAltaEmpleado;
+import modulo.empleado.ExpModificarEmpleado;
+import screens.ctrlMainMenu;
 import screens.models.combos.LocalidadComboModel;
 
 /**
  *
- * @author Manuel
+ * @author Juan
  */
-public class ctrlAltaEmpleado {
-    private AltaEmpleado _pantalla;
-    private ExpAltaEmpleado _gestorEmpleado;
+public class CtrlModificarEmpleado {
 
-    public ctrlAltaEmpleado(JDesktopPane panel) {
+    private Empleado empleado;
+    private AltaEmpleado _pantalla;
+    private ExpModificarEmpleado _gestorModificar;
+    private LocalidadComboModel _cLoalidad;
+    private ctrlListadoPersonal _control;
+
+    public CtrlModificarEmpleado(Empleado empleado, ctrlListadoPersonal control) {
+        this.empleado = empleado;
+        _control = control;
+        _gestorModificar = new ExpModificarEmpleado();
         _pantalla = new AltaEmpleado();
-        panel.add(_pantalla);
-        _gestorEmpleado = new ExpAltaEmpleado();
-        _pantalla.getCbxLocalidad().setModel(new LocalidadComboModel(_gestorEmpleado.iniciarAltaEmpleado()));
-        _pantalla.getTxtFecNac().setMaxSelectableDate(new Date());
+        loadScreen();
+    }
+
+    private void loadScreen(){
+        _cLoalidad = new LocalidadComboModel(_gestorModificar.listarLocalidades());
+        _pantalla.getCbxLocalidad().setModel(_cLoalidad);
+
+        _pantalla.getTxtApellido().setText(empleado.getApellido());
+        _pantalla.getTxtNombre().setText(empleado.getNombre());
+        _pantalla.getTxtDni().setText(empleado.getDni());
+        _pantalla.getTxtFecNac().setDate(empleado.getFechaNacimiento());
+
+        _pantalla.getTxtCodigo().setText(empleado.getCodigo());
+
+        _pantalla.getCbxLocalidad().setSelectedIndex(_cLoalidad.getIndexOf(empleado.getDomicilio().getLocalidad()));
+        _pantalla.getTxtCalle().setText(empleado.getDomicilio().getCalle());
+        _pantalla.getTxtNumero().setText(empleado.getDomicilio().getNumero());
+        _pantalla.getTxtPiso().setText(empleado.getDomicilio().getPisto());
+        _pantalla.getTxtDepto().setText(empleado.getDomicilio().getDepto());
+
         _pantalla.getBtnCancel().addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -41,12 +64,16 @@ public class ctrlAltaEmpleado {
             }
         });
         _pantalla.setVisible(true);
-        
+        ctrlMainMenu.getDestktopPane().add(_pantalla);
+        _pantalla.toFront();
     }
 
     void pressCancelButton(){
-        if(JOptionPane.showConfirmDialog(_pantalla, "Desea cancela la operación?", "Cancelar", JOptionPane.YES_NO_OPTION)==0)
+        if(JOptionPane.showConfirmDialog(_pantalla, "Desea cancela la operación?", "Cancelar", JOptionPane.YES_NO_OPTION)==0){
             _pantalla.dispose();
+            _control.habilitar();
+        }
+
     }
 
     void pressOkButton(){
@@ -70,12 +97,12 @@ public class ctrlAltaEmpleado {
             }
         }
         try {
-            _gestorEmpleado.guardar(localidad, parametros);
-            if(JOptionPane.showConfirmDialog(_pantalla, "Operación realizada con exito. \n Desea realizar otra operación?","Guardado",JOptionPane.YES_NO_OPTION)!=0)
-                _pantalla.dispose();
+            _gestorModificar.actualizar(empleado, localidad, parametros);
+            JOptionPane.showMessageDialog(_pantalla, "Operación realizada con exito","Guardado",JOptionPane.INFORMATION_MESSAGE);
+            _pantalla.dispose();
+            _control.habilitar();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(_pantalla, "No se pudo completar la operación.\nError: "+ ex.getMessage(), "Error al guardar", JOptionPane.ERROR_MESSAGE);
         }
     }
-
 }

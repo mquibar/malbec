@@ -11,18 +11,18 @@
 	<parameter name="FECHA_FIN" class="java.util.Date"/>
 	<queryString>
 		<![CDATA[SELECT
-     caja."fechaempaque" AS caja_fechaempaque,
-     Sum(caja."peso") AS caja_peso,
-     count(caja."empleado_idempleado") as cant_cajas,
-     empleado."codigo" AS empleado_codigo,
-     persona."apellido" || ', ' || persona."nombre" AS emp_nombre,
-     tipouva."nombre" AS tipouva_nombre
+     caja.fechaempaque AS caja_fechaempaque,
+     Sum(caja.peso) AS caja_peso,
+     count(caja.empleado_idempleado) as cant_cajas,
+     empleado.codigo AS empleado_codigo,
+     concat(persona.apellido, ', ' ,persona.nombre) AS emp_nombre,
+     tipouva.nombre AS tipouva_nombre
 FROM
-     "public"."empleado" empleado INNER JOIN "public"."caja" caja ON empleado."idempleado" = caja."empleado_idempleado"
-     INNER JOIN "public"."persona" persona ON empleado."idempleado" = persona."id"
-     INNER JOIN "public"."tipouva" tipouva ON caja."tipouva_id" = tipouva."id"
+     malbecdb.empleado empleado INNER JOIN malbecdb.caja caja ON empleado.idempleado = caja.empleado_idempleado
+     INNER JOIN malbecdb.persona persona ON empleado.idempleado = persona.id
+     INNER JOIN malbecdb.tipouva tipouva ON caja.tipouva_id = tipouva.id
 where
-    caja."fechaempaque" between $P{FECHA_INICIO} and $P{FECHA_FIN}
+    caja.fechaempaque between $P{FECHA_INICIO} and $P{FECHA_FIN}
 
 group by caja_fechaempaque, empleado_codigo, emp_nombre, tipouva_nombre]]>
 	</queryString>
@@ -98,9 +98,9 @@ group by caja_fechaempaque, empleado_codigo, emp_nombre, tipouva_nombre]]>
 	</background>
 	<title>
 		<band height="70" splitType="Stretch">
-			<image>
+			<image onErrorType="Blank">
 				<reportElement x="275" y="0" width="300" height="64"/>
-				<imageExpression class="java.lang.String"><![CDATA["leaf_banner_green.png"]]></imageExpression>
+				<imageExpression class="java.lang.String"><![CDATA["/reports/leaf_banner_green.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement style="Title" x="0" y="13" width="263" height="33"/>

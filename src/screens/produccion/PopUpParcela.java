@@ -24,9 +24,8 @@ import screens.models.tablas.ModelSystemTable;
 public class PopUpParcela extends javax.swing.JInternalFrame {
 
     /** Creates new form PopUpParcela */
-    public PopUpParcela( ctrlLectorPeso control) {
+    public PopUpParcela() {
         initComponents();
-        _control = control;
     }
 
     public void setModel(ModelSystemTable modelo){
@@ -58,6 +57,10 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
 
     public JTable getTblTipoUva() {
         return _tblTipoUva;
+    }
+
+    public JButton getBtnSiguiente() {
+        return _btnSiguiente;
     }
     
     
@@ -128,11 +131,6 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
 
         _btnSiguiente.setText("Siguiente >>");
         _btnSiguiente.setSelected(true);
-        _btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _btnSiguienteActionPerformed(evt);
-            }
-        });
 
         _btnCancel.setText("Cancelar");
 
@@ -163,17 +161,11 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(_btnSiguiente)
                     .addComponent(_btnCancel))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void _btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__btnSiguienteActionPerformed
-        int selected = _tblTipoUva.getSelectedRow();
-        if(selected<0) selected=0;
-        _control.pressNextButton(0);
-    }//GEN-LAST:event__btnSiguienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -187,5 +179,5 @@ public class PopUpParcela extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-    private ctrlLectorPeso _control;
+
 }

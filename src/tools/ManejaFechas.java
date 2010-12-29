@@ -42,6 +42,12 @@ public class ManejaFechas {
         String fechaString = sdf.format(fecha);
         return fechaString;
     }
+    public static String convertirDate(Date fecha, String pattern){
+        if(pattern.isEmpty()) pattern = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        String fechaString = sdf.format(fecha);
+        return fechaString;
+    }
 
     public static Date getHour(String hora)
     {

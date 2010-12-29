@@ -15,7 +15,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class StrategyPdfView implements ExportStrategy {
 
     public void exportar(JasperPrint reporte) {
-        JasperViewer.viewReport(reporte);
+        JasperViewer.viewReport(reporte,false);
     }
 
 }

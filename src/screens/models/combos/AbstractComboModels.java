@@ -28,5 +28,9 @@ public abstract class AbstractComboModels<E> extends DefaultComboBoxModel {
         return _lista.get(index-1);
     }
 
+    @Override
+    public int getIndexOf(Object anObject) {
+        return _lista.indexOf(anObject)+1;
+    }
 
 }

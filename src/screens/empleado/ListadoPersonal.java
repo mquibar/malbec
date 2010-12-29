@@ -21,9 +21,8 @@ import javax.swing.JTable;
 public class ListadoPersonal extends javax.swing.JInternalFrame {
 
     /** Creates new form ListadoPersonal */
-    public ListadoPersonal(ctrlListadoPersonal control) {
+    public ListadoPersonal() {
         initComponents();
-        _control=control;
     }
 
     /** This method is called from within the constructor to
@@ -34,10 +33,13 @@ public class ListadoPersonal extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         _tblEmployees = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         _btnOk = new javax.swing.JButton();
+        _btnEdit = new javax.swing.JButton();
 
         _tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -49,7 +51,22 @@ public class ListadoPersonal extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(_tblEmployees);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
         _btnOk.setText("Salir");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 10);
+        jPanel1.add(_btnOk, gridBagConstraints);
+
+        _btnEdit.setText("Modificar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 10);
+        jPanel1.add(_btnEdit, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,11 +74,9 @@ public class ListadoPersonal extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(351, Short.MAX_VALUE)
-                .addComponent(_btnOk)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -69,8 +84,8 @@ public class ListadoPersonal extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(_btnOk)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -78,11 +93,13 @@ public class ListadoPersonal extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton _btnEdit;
     private javax.swing.JButton _btnOk;
     private javax.swing.JTable _tblEmployees;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-    private ctrlListadoPersonal _control;
+
 
     public JButton getBtnOk() {
         return _btnOk;
@@ -90,6 +107,10 @@ public class ListadoPersonal extends javax.swing.JInternalFrame {
 
     public JTable getTblEmployees() {
         return _tblEmployees;
+    }
+
+    public JButton getBtnEdit() {
+        return _btnEdit;
     }
 
 

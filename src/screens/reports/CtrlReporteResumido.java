@@ -8,7 +8,11 @@ package screens.reports;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import modulo.caja.ExpertoReportesCaja;
 import screens.ctrlMainMenu;
+import systemException.BussinesException;
+import systemException.InvalidDataException;
 
 /**
  *
@@ -61,12 +65,29 @@ public class CtrlReporteResumido {
         _pantalla.dispose();
     }
 
-    void pressXlsButton(){
+   void pressXlsButton() {
+        try {
+            if (_pantalla.getChkDiario().isSelected())
+                _pantalla.getTxtFechaFin().setDate(_pantalla.getTxtFechaInicio().getDate());
+            ExpertoReportesCaja.ReportResumidoXLS(_pantalla.getTxtFechaInicio().getDate(), _pantalla.getTxtFechaFin().getDate());
+        } catch (InvalidDataException ex) {
+            JOptionPane.showMessageDialog(_pantalla, ex.getMessage(), "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
+        } catch (BussinesException ex) {
+            JOptionPane.showMessageDialog(_pantalla, ex.getMessage(), "Error de sistema", JOptionPane.ERROR_MESSAGE);
+        }
 
     }
 
-    void pressPdfButton(){
-
+    void pressPdfButton() {
+        try {
+            if (_pantalla.getChkDiario().isSelected())
+                _pantalla.getTxtFechaFin().setDate(_pantalla.getTxtFechaInicio().getDate());
+            ExpertoReportesCaja.ReportResumidoPDF(_pantalla.getTxtFechaInicio().getDate(), _pantalla.getTxtFechaFin().getDate());
+        } catch (InvalidDataException ex) {
+            JOptionPane.showMessageDialog(_pantalla, ex.getMessage(), "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
+        } catch (BussinesException ex) {
+            JOptionPane.showMessageDialog(_pantalla, ex.getMessage(), "Error de sistema", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 }

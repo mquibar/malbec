@@ -99,7 +99,7 @@ public class ExpertoCargarCaja {
             caja.setTipoUva(_tipoUva);
             caja.setEmpleado(empleado);
             caja.setPeso(peso);
-            verificarCaja(caja);
+            //verificarCaja(caja);
             Facade.getInstance().beginTx();
             Facade.getInstance().guardar(caja);
             Facade.getInstance().commitTx();
@@ -127,8 +127,8 @@ public class ExpertoCargarCaja {
          * Los valores que se le suman y se restan al peso llena, se tienen que leer del archivo
          * de parametros
          */
-        double limitesuperior = pesoLLena + 0.500;
-        double limiteinferior = pesoLLena - 0.400;
+        double limitesuperior = pesoLLena + 0.200;
+        double limiteinferior = pesoLLena - 0.001;
 
         if (!(peso < limitesuperior && peso > limiteinferior)) {
             throw new InvalidDataException("peso caja", peso);
@@ -140,7 +140,7 @@ public class ExpertoCargarCaja {
      *
      * @param caja: ultima caja ingresada en el sistema
      * @throws InvalidDataException
-     */
+     
     private void verificarCaja(Caja caja) throws InvalidDataException {
         if (ultima == null) {
             ultima = caja;
@@ -148,10 +148,10 @@ public class ExpertoCargarCaja {
         }
         /* Si el ultimo empleado ingresado es igual al anterior y el peso de la caja ingresada
          * es tambien exactamente igual   
-         */
+         
         if (ultima.getEmpleado().equals(caja.getEmpleado()) && ultima.getPeso() == caja.getPeso()) {
             throw new InvalidDataException("Caja", ultima.getPeso());
         }
         ultima = caja;
-    }
+    }*/
 }

@@ -23,9 +23,8 @@ import javax.swing.JTextField;
 public class AltaEmpleado extends javax.swing.JInternalFrame {
 
     /** Creates new form AltaEmpleado */
-    public AltaEmpleado(ctrlAltaEmpleado control) {
+    public AltaEmpleado() {
         initComponents();
-        _control = control;
     }
 
     /** This method is called from within the constructor to
@@ -273,7 +272,6 @@ public class AltaEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
-    private ctrlAltaEmpleado _control;
     
     public JComboBox getCbxLocalidad() {
         return _cbxLocalidad;

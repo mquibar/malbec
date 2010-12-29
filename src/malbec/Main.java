@@ -5,9 +5,6 @@
 
 package malbec;
 
-import modulo.caja.ExpertoCargarCaja;
-import screens.controllers.ctrlLectorPeso;
-
 
 /**
  *

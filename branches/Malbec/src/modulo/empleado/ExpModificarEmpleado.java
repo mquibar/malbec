@@ -25,6 +25,10 @@ public class ExpModificarEmpleado {
         return (new ExpConsultarEmpleado()).consultarEmpleadosNoEliminados();
     }
 
+    public List<Localidad> listarLocalidades(){
+        return  Facade.getInstance().findAll(Localidad.class);
+    }
+
     /**
      * Modifica los datos personales del empleado
      *

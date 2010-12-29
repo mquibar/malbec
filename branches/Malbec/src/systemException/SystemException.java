@@ -33,7 +33,7 @@ public abstract class SystemException extends Exception {
     }
 
     public SystemException(int errorCode, String value) {
-        super("System Error Code: " + errorCode + " [" + value + "]");
+        super("System Error Code: " + errorCode + "\n[" + value + "]");
         this.errorCode = errorCode;
         this.value = value;
     }

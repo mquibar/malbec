@@ -10,12 +10,12 @@ package modulo.reportes;
  * @author MARIANO
  */
 public class FactoryStrategy {
-    private FactoryStrategy _instance;
+    private static FactoryStrategy _instance;
     private FactoryStrategy(){
 
     }
 
-    public FactoryStrategy getInstance(){
+    public static FactoryStrategy getInstance(){
         if(_instance == null)
             _instance = new FactoryStrategy();
         return _instance;
@@ -24,8 +24,24 @@ public class FactoryStrategy {
     public static enum Exportacion{
         XLS, PDF, PDFVIEW
     }
+
+    /**
+     * devuelve la estrategia especifica para cada caso
+     * 
+     * @param exportacion: tipo de exportacion
+     * @return devuleve la estrategia especifica
+     */
     public ExportStrategy getStrategy(Exportacion exportacion){
-        return null;
+        switch (exportacion) {
+
+            case PDFVIEW:
+                return new StrategyPdfView();
+            case XLS:
+                return new StrategyXls();
+            default:
+                return null;
+
+        }
 
     }
 }

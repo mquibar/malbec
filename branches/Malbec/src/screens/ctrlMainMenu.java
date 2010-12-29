@@ -121,7 +121,7 @@ public class ctrlMainMenu {
     }
 
     void exitSystem() {
-        persistencia.Facade.getInstance().closeConection();
+        try{persistencia.Facade.getInstance().closeConection();}catch(Exception e){}
         System.exit(0);
     }
 

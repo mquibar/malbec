@@ -31,9 +31,12 @@ class ConectionAdmin {
     }
 
     private ConectionAdmin() {
+        Properties def = tools.OpenFile.openProperties("/malbec/ConectionProperties.properties");
         Properties prop = new Properties();
-        prop.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/malbecdb");//+tools.WorkingDirectory.getPath()+"/.malbecdb;create=true");
-        prop.put("hibernate.connection.driver_class","org.postgresql.Driver");
+        prop.put("hibernate.connection.url", def.getProperty("url"));
+        prop.put("hibernate.connection.driver_class",def.getProperty("driver"));
+        prop.put("hibernate.connection.username", def.getProperty("user"));
+        prop.put("hibernate.connection.password" , def.getProperty("pass"));
         System.out.println(prop.getProperty("hibernate.connection.url"));
         _factory = Persistence.createEntityManagerFactory("MalbecPU",prop);
 

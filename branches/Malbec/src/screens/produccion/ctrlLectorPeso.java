@@ -15,6 +15,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import modulo.caja.ExpertoCargarCaja;
 import screens.models.tablas.TableParcela;
@@ -38,7 +40,7 @@ public final class ctrlLectorPeso {
 
     public ctrlLectorPeso(JDesktopPane desktop) {
         _pantalla = new LectorPeso(this);
-        popup = new PopUpParcela(this);
+        popup = new PopUpParcela();
         desktop.add(_pantalla);
         desktop.add(popup);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -103,6 +105,16 @@ public final class ctrlLectorPeso {
                     pressNextButton(idx);
                 }
             }});
+        popup.getBtnSiguiente().addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                int idx = popup.getTblTipoUva().getSelectedRow();
+                    if (idx < 0) {
+                        idx = 0;
+                    }
+                    pressNextButton(idx);
+            }
+        });
         popup.setVisible(true);
     }
 
@@ -153,6 +165,7 @@ public final class ctrlLectorPeso {
         _pantalla.getTxtPeso().setText(parcearPeso(peso));
         _pantalla.getTxtBarCode().setText("");
         setTiempo();
+        (new Esperador(this)).start();
     }
 
     private String parcearPeso(Double peso) {
@@ -178,4 +191,27 @@ public final class ctrlLectorPeso {
         return (System.currentTimeMillis() - tiempo) > 5000;
 
     }
+
+    public void actualizarDispley(){
+        _pantalla.getTxtPeso().setText("00,000");
+    }
+}
+
+class Esperador extends Thread{
+
+    private ctrlLectorPeso lector;
+    public Esperador(ctrlLectorPeso control){
+        lector=control;
+    }
+    @Override
+    public void run() {
+        try {
+            sleep(5000);
+            lector.actualizarDispley();
+        } catch (InterruptedException ex) {
+            System.err.println(ex);
+        }
+
+    }
+
 }

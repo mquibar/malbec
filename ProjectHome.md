@@ -1,0 +1,1 @@
+Malbec es un sistema diseñado a medida para galpones de empaque de uva, el cual permite llevar un seguimiento del personal que participa, ademas mantiene comunicacion con balanza y captura de codigos de barra
